@@ -1,0 +1,49 @@
+app:
+  # Options: base, structured-output, function-call, vector-store, lab
+  active-chatbot: base
+spring:
+  ai:
+    openai:
+      embedding: # https://docs.spring.io/spring-ai/reference/api/embeddings/openai-embeddings.html
+        options:
+          # Options: text-embedding-ada-002, text-embedding-3-large, text-embedding-3-small) and more..
+          model: 'text-embedding-3-large'
+      chat: # https://docs.spring.io/spring-ai/reference/api/chat/openai-chat.html
+        options:
+          # Options: gpt-4o, gpt-4o-mini, gpt-4-turbo, gpt-3.5-turbo and more..
+          model: 'gpt-4o-mini'
+    vectorstore:
+      elasticsearch:
+        dimensions: 3072
+        index-name: "users" # Options: users, burgerlijk-wetboek, voetbal, //todo build vectors for all!
+  threads:
+    virtual:
+      enabled: true
+  main:
+    allow-bean-definition-overriding: true
+  elasticsearch:
+    uris: 'http://localhost:9200' #//todo elasticsearch cluster!
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres?currentSchema=public
+    username: postgres
+    password: test
+    hikari:
+      maximum-pool-size: 32
+  liquibase:
+    change-log: classpath:db/changelog.xml
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/postgres?currentSchema=public
+    user: postgres
+    password: test
+  sql:
+    init:
+      platform: postgresql
+
+logging:
+  level:
+    org:
+      springframework:
+        ai:
+          chat:
+            client:
+              advisor: DEBUG

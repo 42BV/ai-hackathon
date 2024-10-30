@@ -1,0 +1,25 @@
+services:
+  elasticsearch:
+    image: 'elasticsearch:8.14.3'
+    ports:
+      - '9200:9200'
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+      - xpack.license.self_generated.type=trial
+  postgres:
+    ports:
+      - '5432:5432'
+    volumes:
+      - ./postgres-init:/docker-entrypoint-initdb.d
+    environment:
+      #When DATA=full, a full database dump will be loaded.
+      - DATA
+      #When SNAPSHOT=true, the sync status is set to FINISHED so the snapshot can be restored
+      - SNAPSHOT
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=postgres
+      - POSTGRES_PASSWORD=test
+    image: 'postgres:13.4'
+    command: 'postgres -c fsync=off'
+
