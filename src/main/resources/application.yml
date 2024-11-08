@@ -3,6 +3,11 @@ app:
   active-chatbot: base
 spring:
   ai:
+    vectorstore:
+      elasticsearch:
+        index-name: "users"
+        dimensions: 3072
+        initialize-schema: true
     openai:
       embedding: # https://docs.spring.io/spring-ai/reference/api/embeddings/openai-embeddings.html
         options:
@@ -12,10 +17,7 @@ spring:
         options:
           # Options: gpt-4o, gpt-4o-mini, gpt-4-turbo, gpt-3.5-turbo and more..
           model: 'gpt-4o-mini'
-    vectorstore:
-      elasticsearch:
-        dimensions: 3072
-        index-name: "users" # Options: users, burgerlijk-wetboek, voetbal, //todo build vectors for all!
+
   threads:
     virtual:
       enabled: true
