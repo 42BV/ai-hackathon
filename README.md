@@ -21,7 +21,7 @@ This has been further expanded upon with features such as:
     + Important: This file is excluded in git. Only put the secret here! NOT in `application.yml`
     + You need to create this `application-local.yml` yourself!
 + In root folder run: `docker-compose up -d`
-    + Kill it using `docker-compose down` in root folder.
+  + Kill it when done using `docker-compose down` in root folder.
 + Run application using `mvn clean spring-boot:run -Dspring-boot.run.profiles=local`
 + Set the `app.active-chatbot` property to the implementation that you wish to use! See the `chatbot` package for all chatbot implementations
     + You set this property in the `application.yml`
@@ -58,7 +58,7 @@ If you wish, you can use the local docker container to set up your own local Ela
 You will have to:
 
 - Change connecting uris in the `application.yml` (local connection is commented out)
-- Create the embeddings yourself! See an examples in `SpringAIConfiguration.java` and `FileVectorStoreDataLoader.java` how to do so.
+- Create the embeddings yourself! See examples in `SpringAIConfiguration.java` and `FileVectorStoreDataLoader.java` how to do so.
 
 ### Database (PostgresQL)
 

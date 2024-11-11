@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import lombok.extern.slf4j.Slf4j;
 import nl._42.springai.hackathon.chatbot.DefaultClientBuilder;
 import nl._42.springai.hackathon.chatbot.SpringAIChatBot;
 
@@ -25,11 +26,12 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @ConditionalOnProperty(value = "app.active-chatbot", havingValue = "vector-store")
+@Slf4j
 public class SpringAIVectorStoreChatBot implements SpringAIChatBot<String> {
 
     private static final String SYSTEM_PROMPT = """
-            You are a tool to help users quickly get information from documentation and books.
-                        
+             You are a tool that has access to publications. Users can ask questions about them!
+             
              DOCUMENTS:
              {documents}
             """;
@@ -52,6 +54,7 @@ public class SpringAIVectorStoreChatBot implements SpringAIChatBot<String> {
         List<Document> listOfSimilarDocuments = this.vectorStore.similaritySearch(message).stream().toList();
         String documents = listOfSimilarDocuments
                 .stream()
+                //Maybe you want to use metadata here :)
                 .map(Document::getContent)
                 .collect(Collectors.joining(System.lineSeparator()));
 
