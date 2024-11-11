@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import nl._42.springai.hackathon.chatbot.SpringAIChatBot;
 import nl._42.springai.hackathon.testdata.file.FileVectorStoreDataLoader;
+import nl._42.springai.hackathon.testdata.publication.PublicationTestDataGenerator;
 import nl._42.springai.hackathon.testdata.user.UserTestDataGenerator;
 
 import org.slf4j.Logger;
@@ -25,7 +26,8 @@ public class SpringAIConfiguration {
     ApplicationRunner applicationRunner(
             SpringAIChatBot springAIChatBot,
             UserTestDataGenerator userTestDataGenerator,
-            FileVectorStoreDataLoader fileVectorStoreDataLoader
+            FileVectorStoreDataLoader fileVectorStoreDataLoader,
+            PublicationTestDataGenerator publicationTestDataGenerator
     ) {
 
         return args -> {
@@ -36,8 +38,12 @@ public class SpringAIConfiguration {
                 String userInput = scanner.next();
 
                 switch (userInput) {
-                case "#load-data" -> {
-                    userTestDataGenerator.loadData();
+                case "#load-user-data" -> {
+                    userTestDataGenerator.loadUserData();
+                    logger.info("Ready.");
+                }
+                case "#load-publication-data" -> {
+                    publicationTestDataGenerator.generatePublicationTestData();
                     logger.info("Ready.");
                 }
                 case "#build-vectors" -> {

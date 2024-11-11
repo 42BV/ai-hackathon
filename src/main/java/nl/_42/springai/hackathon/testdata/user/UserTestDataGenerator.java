@@ -33,7 +33,6 @@ public class UserTestDataGenerator {
 
     private static final Faker FAKER = Faker.instance();
     private final UserRepository userRepository;
-    private final UserActivityRepository userActivityRepository;
     private final UserReviewRepository userReviewRepository;
     private List<String> mockReviews;
 
@@ -42,7 +41,7 @@ public class UserTestDataGenerator {
         mockReviews = loadReviews("/reviews.txt");
     }
 
-    public void loadData() throws InterruptedException {
+    public void loadUserData() throws InterruptedException {
         log.info("Loading test data for users and user activity!");
         var executor = Executors.newCachedThreadPool();
         var tasks = new IntRange(0, 20).stream().map(CreateDataTask::new).toList();
@@ -62,7 +61,6 @@ public class UserTestDataGenerator {
                 log.error("Task failed with exception: ", e);
             }
         }
-
     }
 
     public List<User> createUsers(int size) {
@@ -76,16 +74,6 @@ public class UserTestDataGenerator {
                 .supply(Select.field(User::getAge), () -> (long) FAKER.number().numberBetween(1, 100))
                 .create();
         return userRepository.saveAll(users);
-    }
-
-    public List<UserActivity> createUserActivityForUsers(List<Long> userIds, int size) {
-        var activity = Instancio.ofList(UserActivity.class)
-                .size(size)
-                .supply(Select.field(UserActivity::getUserId), random -> userIds.get(random.intRange(0, userIds.size() - 1)))
-                .ignore(Select.field(UserActivity::getId))
-                .create();
-
-        return userActivityRepository.saveAll(activity);
     }
 
     public List<UserReview> createReviewsForUsers(List<Long> userIds, int size) {
@@ -130,7 +118,6 @@ public class UserTestDataGenerator {
         public List<User> call() {
             log.info("Started CreateDataTask id: {}", taskId);
             var users = createUsers(50);
-            createUserActivityForUsers(users.stream().map(User::getId).toList(), 500);
             createReviewsForUsers(users.stream().map(User::getId).toList(), 50);
             log.info("Finished CreateDataTask id: {}", taskId);
             return users;

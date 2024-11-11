@@ -27,4 +27,8 @@
             <column name="keywords" type="varchar(256)"/>
         </createTable>
     </changeSet>
+
+    <changeSet id="2" author="tim.quist@42.nl">
+        <dropTable tableName="user_activity"/>
+    </changeSet>
 </databaseChangeLog>

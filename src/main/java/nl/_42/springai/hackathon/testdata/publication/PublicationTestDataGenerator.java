@@ -8,7 +8,6 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 import nl._42.springai.hackathon.chatbot.DefaultClientBuilder;
-import nl._42.springai.hackathon.chatbot.SpringAIChatBot;
 
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.messages.Message;
@@ -16,30 +15,22 @@ import org.springframework.ai.chat.messages.UserMessage;
 import org.springframework.ai.chat.prompt.Prompt;
 import org.springframework.ai.chat.prompt.SystemPromptTemplate;
 import org.springframework.ai.openai.OpenAiChatOptions;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
 
 /**
- * This chatbot responds according to a JSON schema. It will ALWAYS adhere to the schema.
- * {@link '<a href="https://spring.io/blog/2024/08/09/spring-ai-embraces-openais-structured-outputs-enhancing-json-response">...</a>'}
+ * Will generate fake publication data for testing purposes
  */
 @Component
-@ConditionalOnProperty(value = "app.active-chatbot", havingValue = "publication-generator")
-public class PublicationTestDataGenerator implements SpringAIChatBot<String> {
+public class PublicationTestDataGenerator {
 
     public static final String SYSTEM_PROMPT = """
                 You are a publication generator.
-                
                 Create one of three types of publication: VACANCY, NEWS, EVENT.
-                
                 You can use the provided function calls to create the actual publication.
-                
                 Try to generate titles in a single sentence, and 10 sentences for content.
-                
                 Can you put spelling mistakes and inconsistencies, since this is test data. Mistakes in translation between dutch and english.
-                
                 Please note that some tags are mutually exclusive, create the publication accordingly. You can also come up with your own tags.
-                
+                Generate 5 publications at a time.
                 These are the predefined tags:
                 {tags}
             """;
@@ -53,6 +44,12 @@ public class PublicationTestDataGenerator implements SpringAIChatBot<String> {
     public PublicationTestDataGenerator(ChatClient.Builder clientBuilder) {
         this.aiClient = DefaultClientBuilder.addDefaults(clientBuilder).build();
 
+    }
+
+    public void generatePublicationTestData() {
+        for (int i = 0; i < 20; i++) {
+            chat("Generate 5 publications about whatever subject. Make it diverse");
+        }
     }
 
     public String chat(String message) {
