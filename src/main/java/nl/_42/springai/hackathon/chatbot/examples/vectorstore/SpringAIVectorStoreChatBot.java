@@ -28,11 +28,7 @@ import org.springframework.stereotype.Component;
 public class SpringAIVectorStoreChatBot implements SpringAIChatBot<String> {
 
     private static final String SYSTEM_PROMPT = """
-             You have access to our user system. You are provided documents which are users. 
-             These users were selected through a vector store similarity search based on the provided prompt.
-             
-             Please answer any questions about these users. You are provided up to a maximum of 4 documents.
-             You cannot answer questions about aggregations properly because of this document limit.
+            You are a tool to help users quickly get information from documentation and books.
                         
              DOCUMENTS:
              {documents}

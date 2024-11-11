@@ -32,11 +32,18 @@ This has been further expanded upon with features such as:
 This application consists of:
 
 + SpringBoot application with Spring AI (OpenAI) & Elasticsearch dependencies
-    + Different chatbot functions which each displays a feature that is offered by SpringAI (and OpenAI)
-    + Spring AI is the 'glue', whilst OpenAI offers most of the core features
+  + Different chatbot functions which each displays a feature that is offered by SpringAI (and OpenAI)
+  + Spring AI is the 'glue', whilst OpenAI offers most of the core features
 + Different data sources:
-    + Resource text files for displaying semantic searching using vector stores
-    + PostgresQL with mock data for more traditional structured data
-    + Pre-built vector-store databases hosted in Elasticsearch, read-only!
-        + This is done since embedding data is expensive, doing so 20x for the same mock-data would be a waste.
+  + Resource text files for displaying semantic searching using vector stores
+  + PostgresQL with mock data for more traditional structured data
+  + Pre-built vector-store databases hosted in Elasticsearch, read-only!
+    + This is done since embedding data is expensive, doing so 20x for the same mock-data would be a waste.
 + Docker-Compose YAML to run a local Elasticsearch vector store instance and postgres database
+
+### Connecting to database
+
+### Connecting to Elasticsearch
+- 
+
+- `http://localhost:9200` //todo replace with real url!!!
