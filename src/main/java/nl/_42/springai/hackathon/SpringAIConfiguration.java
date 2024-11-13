@@ -40,11 +40,11 @@ public class SpringAIConfiguration {
                 String userInput = scanner.next();
 
                 switch (userInput) {
-                case "#load-user-data" -> {
+                case "#generate-user-data" -> {
                     userTestDataGenerator.loadUserData();
                     logger.info("Ready.");
                 }
-                case "#load-publication-data" -> {
+                case "#generate-publication-data" -> {
                     publicationTestDataGenerator.generatePublicationTestData();
                     logger.info("Ready.");
                 }

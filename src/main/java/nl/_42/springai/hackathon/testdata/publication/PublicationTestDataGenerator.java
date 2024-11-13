@@ -47,7 +47,7 @@ public class PublicationTestDataGenerator {
     }
 
     public void generatePublicationTestData() {
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 5; i++) {
             chat("Generate 5 publications about whatever subject. Make it diverse");
         }
     }
