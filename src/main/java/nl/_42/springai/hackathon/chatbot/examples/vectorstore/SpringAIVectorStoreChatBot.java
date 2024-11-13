@@ -56,7 +56,7 @@ public class SpringAIVectorStoreChatBot implements SpringAIChatBot<String> {
                 .stream()
                 //Maybe you want to use metadata here :)
                 .map(Document::getContent)
-                .collect(Collectors.joining(System.lineSeparator()));
+                .collect(Collectors.joining("\n\n"));
 
         Message systemMessage = new SystemPromptTemplate(SYSTEM_PROMPT)
                 .createMessage(Map.of("documents", documents));

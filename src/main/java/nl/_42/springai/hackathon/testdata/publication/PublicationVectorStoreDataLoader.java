@@ -18,8 +18,6 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 @Slf4j
 @Component
 @RequiredArgsConstructor
@@ -29,7 +27,6 @@ public class PublicationVectorStoreDataLoader {
 
     private final VectorStore vectorStore;
     private final PublicationRepository publicationRepository;
-    private final ObjectMapper objectMapper;
 
     private static String mapI18NString(Map<String, String> map) {
         return String.join(" : ", map.get("nl"), map.get("en"));
@@ -41,7 +38,7 @@ public class PublicationVectorStoreDataLoader {
         var publications = publicationRepository.findAll(PageRequest.of(0, BATCH_SIZE));
         var tasks = new ArrayList<Callable<Void>>();
 
-        IntStream.range(0, publications.getTotalPages() - 1)
+        IntStream.range(0, publications.getTotalPages())
                 .mapToObj(PublicationVectorBuildTask::new)
                 .forEach(tasks::add);
 
