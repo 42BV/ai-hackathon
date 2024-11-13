@@ -24,7 +24,8 @@ spring:
   main:
     allow-bean-definition-overriding: true
   elasticsearch:
-    uris: 'http://localhost:9200' #//todo elasticsearch cluster!
+    uris: 'http://localhost:9200' #todo cluster
+  #    uris: 'http://localhost:9200' # Local cluster, dont forget
   datasource:
     url: jdbc:postgresql://localhost:5432/postgres?currentSchema=public
     username: postgres

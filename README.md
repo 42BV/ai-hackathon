@@ -18,6 +18,7 @@
 ## Good to know
 
 + All test-data is loaded in the docker database automatically on startup using database script
++ Our OpenAPI api keys are capped to a limit, if you use too much, you (and others using the same key) will be cut off
 + All vector store data is pre-built based on this test data. You will connect to a shared (online hosted) vector store. Keep in mind that changes to data in
   your database will not reflect in the vector store since it will not automatically embed this data again
   + This makes it so 15+ do not have to make the same embeddings, which can be time-consuming and costly
@@ -26,23 +27,9 @@
     + `FileVectorStoreDataLoader.java`
     + `PublicationVectorStoreDataLoader.java`
     + PLEASE keep in mind that large datasets will take time to embed and cost more credit.
-
-## Structure
-
-This application consists of:
-
-+ SpringBoot application with Spring AI (OpenAI) & Elasticsearch dependencies
-  + Different chatbot functions which each displays a feature that is offered by SpringAI (and OpenAI)
-  + Spring AI is the 'glue', whilst OpenAI offers most of the core features
-+ Different data sources and test data generation tools:
-  + PostgresQL with mock data for more traditional structured data
-    + User
-    + Publications
-    + Reviews
-  + Pre-built vector-store databases hosted in Elasticsearch, read-only!
-    + This is done since embedding data is expensive, doing so 20x for the same mock-data would be a waste.
-  + Resource text files for creating your own embeddings in a local elasticsearch cluster
-+ Docker-Compose YAML to run a local Elasticsearch vector store instance and postgres database
++ All chatbots are setup in a way that the AI chatbot will keep your conversation context in mind. So you can ask follow up questions. This is setup in
+  the [DefaultClientBuilder.java](src%2Fmain%2Fjava%2Fnl%2F_42%2Fspringai%2Fhackathon%2Fchatbot%2FDefaultClientBuilder.java).
+  + Every restart the context resets, so if you want to start clean, just restart the application!
 
 ## Assignment
 
@@ -51,13 +38,19 @@ We added different domain entities and test-data sets to play around with.
 
 In case you want a more specific assignment to do during this hackathon. Please see the LAB.md in the root of the repository.
 
+Otherwise you can also just explore and try out the [examples](src%2Fmain%2Fjava%2Fnl%2F_42%2Fspringai%2Fhackathon%2Fchatbot%2Fexamples)!
+
 You can also refer below to example use-cases to try out:
 
 ### Use-cases to try out
 
+Below are examples of use-cases. Some of these examples have been implemeted in
+the [examples](src%2Fmain%2Fjava%2Fnl%2F_42%2Fspringai%2Fhackathon%2Fchatbot%2Fexamples) already!
+
 - Function-calls:
-  - Data (Grammar and spelling) correction using function calling
-  - Classification or summarization of data (reviews, publications) using function calling
+  - Data correction (ex. grammar and spelling) using function calling
+  - Classification or summarization of data (ex. for reviews, publications) using function calling
+  - Natural language querying (text-to-sql) to get aggregations etc. using function calling
 - Vector stores:
   - Semantic searching and answering questions about publications using a vector store
 
@@ -73,12 +66,15 @@ If you wish to edit data, or to use this example more after the hackathon, you c
 
 #### Own-cluster
 
-If you wish, you can use the local docker container to set up your own local Elasticsearch cluster.
+If you wish, you can use the local docker container as your own Elasticsearch cluster.
 
 You will have to:
 
+- Modify the docker-compose.yml and put back the commented out `elasticsearch` section.
 - Change connecting uris in the `application.yml` (local connection is commented out)
-- Create the embeddings yourself! See examples in `SpringAIConfiguration.java` and `FileVectorStoreDataLoader.java` how to do so.
+- Create the embeddings yourself! See examples in `SpringAIConfiguration.java`, `PublicationVectorStoreDataLoader.java` and `FileVectorStoreDataLoader.java` how
+  to do so.
+- Again, keep in mind, do not start embedding large datasets, this takes time and costs $$$
 
 ## Database (PostgresQL)
 
@@ -107,6 +103,23 @@ We recommend using the database functionality inside Intellij IDEA. If this is n
 https://www.pgadmin.org/download/
 
 You can find the connection details in the `docker-compose.yml`
+
+## Structure
+
+This application consists of:
+
++ SpringBoot application with Spring AI (OpenAI) & Elasticsearch dependencies
+  + Different chatbot functions which each displays a feature that is offered by SpringAI (and OpenAI)
+  + Spring AI is the 'glue', whilst OpenAI offers most of the core features
++ Different data sources and test data generation tools:
+  + PostgresQL with mock data for more traditional structured data
+    + User
+    + Publications
+    + Reviews
+  + Pre-built vector-store databases hosted in Elasticsearch, read-only!
+    + This is done since embedding data is expensive, doing so 20x for the same mock-data would be a waste.
+  + Resource text files for creating your own embeddings in a local elasticsearch cluster
++ Docker-Compose YAML to run a local Elasticsearch vector store instance and postgres database
 
 ## Inspiration
 
