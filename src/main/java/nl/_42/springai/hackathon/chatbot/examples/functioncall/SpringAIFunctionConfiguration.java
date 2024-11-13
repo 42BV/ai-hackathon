@@ -3,6 +3,7 @@ package nl._42.springai.hackathon.chatbot.examples.functioncall;
 import java.util.Set;
 
 import jakarta.persistence.EntityManager;
+
 import nl._42.springai.hackathon.chatbot.examples.functioncall.function.classify.ClassifyReviewAiService;
 import nl._42.springai.hackathon.chatbot.examples.functioncall.function.getuser.GetUserAIService;
 import nl._42.springai.hackathon.chatbot.examples.functioncall.function.sqlquery.GetUserSQLAIService;

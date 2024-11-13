@@ -83,4 +83,8 @@ public class FileVectorStoreDataLoader {
         }
     }
 
+    public void generateTicketData() {
+
+    }
+
 }

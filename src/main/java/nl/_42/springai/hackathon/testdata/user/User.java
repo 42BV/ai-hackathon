@@ -36,6 +36,6 @@ public class User implements Persistable<Long> {
 
     @Override
     public boolean isNew() {
-        return this.id != null;
+        return this.id == null;
     }
 }
