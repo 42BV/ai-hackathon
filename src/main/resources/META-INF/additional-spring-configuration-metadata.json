@@ -1,0 +1,9 @@
+{
+  "properties": [
+    {
+      "name": "app.active-chatbot",
+      "type": "java.lang.String",
+      "description": "Chatbot implementation to use. Options: base, structured-output, function-call, vector-store, lab."
+    }
+  ]
+}

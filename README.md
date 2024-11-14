@@ -2,17 +2,22 @@
 
 ## Quick-start
 
-+ If using a global maven repository definition. Modify the settings.xml to be able to pull Spring snapshot
++ ONLY If using a global maven repository definition! Modify the settings.xml to be able to pull Spring snapshot
   repositories -> `<mirrorOf>*,!spring-milestones,!spring-snapshots</mirrorOf>`
-    + `settings.xml` is usually defined in the current logged-in users `.m2` folder
-+ Input OpenAI api key in `application-local.yml` property: `spring.ai.openai.api-key`
-    + You need to create this `application-local.yml` yourself!
+  + `settings.xml` is usually defined in the current logged-in users `.m2` folder
++ Fill in the required credentials to external systems:
+  + Most of you will have received a complete `application-local.yml`. Just put this in the [resources](src%2Fmain%2Fresources) folder.
+  + If you did not receive an application-local.yml, you will have to create it yourself. Do the following:
+    + Create a `application-local.yml` file in the [resources](src%2Fmain%2Fresources) folder.
+    + Input OpenAI api key in `application-local.yml` property: `spring.ai.openai.api-key`
+    + Input Elasticsearch api-key in `application-local.yml` property: `app.elasticsearch.api-key`
     + Important: This file is excluded in git. Only put the secret here! NOT in `application.yml`
 + In root folder run: `docker-compose up -d`
-    + You can kill it when done using `docker-compose down` in root folder.
+  + You can kill it when done using `docker-compose down` in root folder.
+  + Some IDE's also support going over to the [docker-compose.yml](docker-compose.yml) file and running it from there if this is easier for you!
 + Run application using `mvn clean spring-boot:run -Dspring-boot.run.profiles=local`
 + Set the `app.active-chatbot` property to the implementation that you wish to use! See the `chatbot` package for all chatbot implementations
-    + You set this property in the `application.yml`
+  + You set this property in the [application.yml](src%2Fmain%2Fresources%2Fapplication.yml)
 + After running, start prompting directly in the console!
 
 ## Good to know
@@ -21,15 +26,15 @@
 + Our OpenAPI api keys are capped to a limit, if you use too much, you (and others using the same key) will be cut off
 + All vector store data is pre-built based on this test data. You will connect to a shared (online hosted) vector store. Keep in mind that changes to data in
   your database will not reflect in the vector store since it will not automatically embed this data again
-    + This makes it so 15+ do not have to make the same embeddings, which can be time-consuming and costly
-    + An exception to this is the lab assignment, in this case new opened tickets will automatically get embedded.
+  + This makes it so all of us do not have to make the same embeddings, which can be time-consuming and costly
+  + An exception to this is the lab assignment, in this case new opened tickets will automatically get embedded.
     + If you want to try and build your own vectors from data, refer to one of the following classes:
-        + `FileVectorStoreDataLoader.java`
-        + `PublicationVectorStoreDataLoader.java`
-        + PLEASE keep in mind that large datasets will take time to embed and cost more credit.
+      + `FileVectorStoreDataLoader.java`
+      + `PublicationVectorStoreDataLoader.java`
+      + PLEASE keep in mind that large datasets will take time to embed and cost more credit.
 + All chatbots are setup in a way that the AI chatbot will keep your conversation context in mind. So you can ask follow up questions. This is setup in
   the [DefaultClientBuilder.java](src%2Fmain%2Fjava%2Fnl%2F_42%2Fspringai%2Fhackathon%2Fchatbot%2FDefaultClientBuilder.java).
-    + Every restart the context resets, so if you want to start clean, just restart the application!
+  + Every restart the context resets, so if you want to start clean, just restart the application!
 
 ## Assignment
 
@@ -45,19 +50,47 @@ You can also refer below to use-cases to try out:
 
 ### Use-cases to try out
 
-Below are examples of use-cases. Some of these examples have been implemeted in
+Below are examples of use-cases. Some of these examples have been implemented in
 the [examples](src%2Fmain%2Fjava%2Fnl%2F_42%2Fspringai%2Fhackathon%2Fchatbot%2Fexamples) already!
 
 - Function-calls:
-    - Data correction (ex. grammar and spelling) using function calling
-    - Classification or summarization of data (ex. for reviews, publications) using function calling
-    - Natural language querying (text-to-sql) to get aggregations etc. using function calling
+  - Data correction (ex. grammar and spelling) using function calling
+  - Classification or summarization of data (ex. for reviews, publications) using function calling
+  - Natural language querying (text-to-sql) to get aggregations etc. using function calling
 - Vector stores:
-    - Semantic searching and answering questions about publications using a vector store
+  - Semantic searching and answering questions about publications using a vector store
+
+### Data sets
+
+The following datasets already exist:
+
+- Publications: AI generated publication dataset. Used for vector store example
+  - This dataset is loaded into your local database, and is already fully embedded in the Elasticsearch vector store
+  - Database table: `publication`
+  - Index: `ai-hackathon-publication`
+- Users and reviews: AI generated reviews combined with user data. Used for function calling example
+  - This dataset is loaded into your local database automatically. It is not embedded in Elasticsearch
+  - Database tables: `app_user` and `user_review`
+- Users and tickets: AI generated service desk tickets. Part of the `lab` assignment
+  - This dataset is loaded into your local database, and is already fully embedded in the Elasticsearch vector store
+  - Cool part about this dataset: New tickets created by the AI will also be embedded automatically. So others will be able to see your tickets!
+  - Database tables: `app_user` and `ticket`
+  - Index: `ai-hackathon-ticket`
+- Bee movie: bzzzt...
+  - This dataset is only loaded directly into the vector store
+  - Index: `ai-hackathon-beemovie`
+- Great gatsby
+  - This dataset is only loaded directly into the vector store
+  - Index: `ai-hackathon-great-gatsby`
+- Frankenstein
+  - This dataset is only loaded directly into the vector store
+  - Index: `ai-hackathon-frankenstein`
+
+You can view this test data using the 'Connecting to Elasticsearch through separate client' and 'Connecting to PostgresQL through separate client' below.
 
 ## Elasticsearch
 
-Elasticsearch is the place where our vector stores are. For this hackathon, these vector stores were built ahead of time.
+Elasticsearch is our vector store for this hackathon. These vector stores were built ahead of time.
 
 This is done since creating embeddings can be time-consuming and expensive depending on the amount of data.
 
@@ -72,7 +105,7 @@ If you wish, you can use the local docker container as your own Elasticsearch cl
 You will have to:
 
 - Modify the docker-compose.yml and put back the commented out `elasticsearch` section.
-- Change connecting uris in the `application.yml` (local connection is commented out)
+- Change connection details in the [application.yml](src%2Fmain%2Fresources%2Fapplication.yml)
 - Create the embeddings yourself! See examples in `SpringAIConfiguration.java`, `PublicationVectorStoreDataLoader.java` and `FileVectorStoreDataLoader.java` how
   to do so.
 - Again, keep in mind, do not start embedding large datasets, this takes time and costs $$$

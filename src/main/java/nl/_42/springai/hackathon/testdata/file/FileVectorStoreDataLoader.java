@@ -27,23 +27,23 @@ import org.springframework.transaction.annotation.Transactional;
 public class FileVectorStoreDataLoader {
 
     private static final int BATCH_SIZE = 10;
-    private static final String FILE_NAME = "/beemovie";
+    public static final TokenTextSplitter TEXT_SPLITTER = new TokenTextSplitter();
+    private static final String FILE_NAME = "/file";
 
     private final VectorStore vectorStore;
     private final RestClient elasticsearchClient;
 
-
-
     public void loadVectorStoreData() throws Exception {
         log.info("STARTED");
-
         TextReader reader = new TextReader(FILE_NAME);
 
         var documents = reader.read();
-        log.info("Processed into {} documents", documents.size());
 
-        //This only works if there are multiple documents(files) :)
-        var batches = splitListIntoBatches(documents, BATCH_SIZE);
+        var splitDocuments = TEXT_SPLITTER.apply(documents);
+        log.info("Split into {} documents", splitDocuments.size());
+
+        var batches = splitListIntoBatches(splitDocuments, BATCH_SIZE);
+        log.info("Processed into {} batches", batches.size());
 
         List<Callable<Void>> tasks = new ArrayList<>();
         for (List<Document> batch : batches) {
@@ -67,7 +67,6 @@ public class FileVectorStoreDataLoader {
     @AllArgsConstructor
     class FileVectorBuildTask implements Callable<Void> {
 
-        public static final TokenTextSplitter TEXT_SPLITTER = new TokenTextSplitter();
         public final List<Document> documents;
 
         @Override
@@ -75,7 +74,7 @@ public class FileVectorStoreDataLoader {
         public Void call() {
             try {
                 log.info("Started VectorBuildTask");
-                vectorStore.accept(TEXT_SPLITTER.apply(documents));
+                vectorStore.accept(documents);
                 log.info("Finished VectorBuildTask id");
             } catch (Exception e) {
                 log.error("Failed task", e);
