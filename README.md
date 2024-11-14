@@ -4,7 +4,7 @@
 
 + If using a global maven repository definition. Modify the settings.xml to be able to pull Spring snapshot
   repositories -> `<mirrorOf>*,!spring-milestones,!spring-snapshots</mirrorOf>`
-    + `settings.xml` is usually defined in the current logged in users `.m2` folder
+    + `settings.xml` is usually defined in the current logged-in users `.m2` folder
 + Input OpenAI api key in `application-local.yml` property: `spring.ai.openai.api-key`
     + You need to create this `application-local.yml` yourself!
     + Important: This file is excluded in git. Only put the secret here! NOT in `application.yml`

@@ -33,6 +33,17 @@ public record UserSqlRequest(
                         review: varchar(2000)
                         score: int
                         subject: varchar(256)
+                        
+                publication table:
+                         id: bigint
+                         title: jsonb -> structure as follows: {"en": "English title", "nl": "Nederlandse titel"}
+                         content: jsonb -> structure as follows: {"en": "English content", "nl": "Nederlandse content"}
+                         type: varchar(256) -> 0, 1, 2
+                         included_tags: jsonb -> structure as follows: ["ENVIRONMENTALIST", "TECH_ENTHUSIAST", "CAR_OWNER"]
+                         excluded_tags: jsonb -> structure as follows: ["ENVIRONMENTALIST", "TECH_ENTHUSIAST", "CAR_OWNER"]
+                         start_date: timestamp
+                         end_date: timestamp
+                         keywords: varchar(256)
                 """)
         String query
 ) {
