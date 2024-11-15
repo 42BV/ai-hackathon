@@ -33,8 +33,6 @@ public class SpringAIServiceDeskChatbot implements SpringAIChatBot<String> {
                 The current user id = {currentId}
                 
                 If you cannot answer a new question, you can offer to create a new ticket for the user using the function call provided.
-                
-                {documents}
             """;
     private static final Long CURRENT_USER_ID = -1L; //Hard coded to make it easier for us :)
 
@@ -52,10 +50,8 @@ public class SpringAIServiceDeskChatbot implements SpringAIChatBot<String> {
     }
 
     public String chat(String message) {
-        var docs = vectorStore.similaritySearch(message);
-
         Message systemMessage = new SystemPromptTemplate(SYSTEM_PROMPT).createMessage(
-                Map.of("currentId", CURRENT_USER_ID, "documents", docs)
+                Map.of("currentId", CURRENT_USER_ID)
         );
 
         UserMessage userMessage = new UserMessage(message);
