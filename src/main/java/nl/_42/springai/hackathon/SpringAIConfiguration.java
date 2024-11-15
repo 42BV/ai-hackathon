@@ -5,12 +5,12 @@ import java.util.Scanner;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import nl._42.springai.hackathon.chatbot.SpringAIChatBot;
-import nl._42.springai.hackathon.testdata.file.FileVectorStoreDataLoader;
-import nl._42.springai.hackathon.testdata.publication.PublicationTestDataGenerator;
-import nl._42.springai.hackathon.testdata.publication.PublicationVectorStoreDataLoader;
-import nl._42.springai.hackathon.testdata.ticket.TicketDataLoader;
-import nl._42.springai.hackathon.testdata.ticket.TicketVectorStoreDataLoader;
-import nl._42.springai.hackathon.testdata.user.UserTestDataGenerator;
+import nl._42.springai.hackathon.domain.file.FileVectorStoreDataLoader;
+import nl._42.springai.hackathon.domain.publication.PublicationTestDataGenerator;
+import nl._42.springai.hackathon.domain.publication.PublicationVectorStoreDataLoader;
+import nl._42.springai.hackathon.domain.ticket.TicketDataLoader;
+import nl._42.springai.hackathon.domain.ticket.TicketVectorStoreDataLoader;
+import nl._42.springai.hackathon.domain.user.UserTestDataGenerator;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

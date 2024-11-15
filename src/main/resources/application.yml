@@ -1,6 +1,6 @@
 app:
-  # Options: base, structured-output, function-call, vector-store, lab
-  active-chatbot: base
+  # Options: base, structured-output, function-call, vector-store, service-desk
+  active-chatbot: service-desk
   elasticsearch:
     host: 'localhost'
     port: 9200

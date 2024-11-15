@@ -5,8 +5,8 @@ import java.util.function.Function;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import nl._42.springai.hackathon.testdata.user.User;
-import nl._42.springai.hackathon.testdata.user.UserRepository;
+import nl._42.springai.hackathon.domain.user.User;
+import nl._42.springai.hackathon.domain.user.UserRepository;
 
 @RequiredArgsConstructor
 @Slf4j

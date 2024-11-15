@@ -1,13 +1,15 @@
-package nl._42.springai.hackathon.testdata.ticket;
+package nl._42.springai.hackathon.chatbot.lab.create;
 
 import java.util.function.Function;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import nl._42.springai.hackathon.domain.ticket.Ticket;
+import nl._42.springai.hackathon.domain.ticket.TicketRepository;
 
 @Slf4j
 @RequiredArgsConstructor
-public class CreateTicketFunctionCall implements Function<TicketCreateRequest, Ticket> {
+public class TicketCreateFunctionCall implements Function<TicketCreateRequest, Ticket> {
 
     private final TicketRepository ticketRepository;
 

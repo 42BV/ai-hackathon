@@ -1,4 +1,4 @@
-package nl._42.springai.hackathon.testdata.ticket;
+package nl._42.springai.hackathon.domain.ticket;
 
 import java.time.LocalDateTime;
 import java.util.Set;
@@ -24,7 +24,7 @@ public class TicketDataLoader {
                 .parallel()
                 .mapToObj(index -> new Ticket(null, FAKER.number().randomNumber(), FAKER.book().title(),
                         Set.of(new Comment(FAKER.number().randomNumber(), FAKER.backToTheFuture().quote())),
-                        LocalDateTime.now(), FAKER.book().title())
+                        LocalDateTime.now(), FAKER.book().title(), true)
                 ).toList());
     }
 }

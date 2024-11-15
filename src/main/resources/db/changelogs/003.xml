@@ -8,15 +8,18 @@
             <column name="id" type="bigint" autoIncrement="true">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="pk_ticket_id" />
             </column>
-            <column name="user_id" type="bigint" />
+            <column name="user_id" type="bigint"/>
             <column name="title" type="varchar(255)">
-                <constraints nullable="false" />
+                <constraints nullable="false"/>
             </column>
             <column name="created_at" type="datetime">
-                <constraints nullable="false" />
+                <constraints nullable="false"/>
             </column>
-            <column name="comments" type="jsonb" />
-            <column name="description" type="text" />
+            <column name="comments" type="jsonb"/>
+            <column name="description" type="text"/>
+            <column name="completed" type="boolean" defaultValue="false">
+                <constraints nullable="false"/>
+            </column>
         </createTable>
     </changeSet>
 </databaseChangeLog>

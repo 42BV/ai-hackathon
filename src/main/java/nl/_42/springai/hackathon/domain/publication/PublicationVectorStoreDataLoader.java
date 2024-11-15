@@ -1,6 +1,6 @@
-package nl._42.springai.hackathon.testdata.publication;
+package nl._42.springai.hackathon.domain.publication;
 
-import static nl._42.springai.hackathon.testdata.BatchUtils.runTasksMultithreaded;
+import static nl._42.springai.hackathon.domain.BatchUtils.runTasksMultithreaded;
 
 import java.util.ArrayList;
 import java.util.HashMap;

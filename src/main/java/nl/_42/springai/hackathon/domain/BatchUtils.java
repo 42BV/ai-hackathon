@@ -1,4 +1,4 @@
-package nl._42.springai.hackathon.testdata;
+package nl._42.springai.hackathon.domain;
 
 import java.util.ArrayList;
 import java.util.List;

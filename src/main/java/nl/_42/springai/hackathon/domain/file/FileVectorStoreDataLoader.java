@@ -1,7 +1,7 @@
-package nl._42.springai.hackathon.testdata.file;
+package nl._42.springai.hackathon.domain.file;
 
-import static nl._42.springai.hackathon.testdata.BatchUtils.runTasksMultithreaded;
-import static nl._42.springai.hackathon.testdata.BatchUtils.splitListIntoBatches;
+import static nl._42.springai.hackathon.domain.BatchUtils.runTasksMultithreaded;
+import static nl._42.springai.hackathon.domain.BatchUtils.splitListIntoBatches;
 
 import java.util.ArrayList;
 import java.util.List;

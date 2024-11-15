@@ -1,4 +1,4 @@
-package nl._42.springai.hackathon.testdata.ticket;
+package nl._42.springai.hackathon.domain.ticket;
 
 import java.util.ArrayList;
 import java.util.concurrent.Callable;
@@ -7,9 +7,8 @@ import java.util.stream.IntStream;
 import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import nl._42.springai.hackathon.testdata.BatchUtils;
+import nl._42.springai.hackathon.domain.BatchUtils;
 
-import org.springframework.ai.vectorstore.VectorStore;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,10 +23,10 @@ class TicketVectorStoreDataLoader {
 
     private final TicketRepository repository;
 
-    private final VectorStore vectorStore;
+    private final TicketVectorStoreRepository ticketVectorStoreRepository;
 
     public void loadVectorStoreData() throws Exception {
-        log.info("STARTED");
+        log.info("STARTED LOADING TICKETS");
 
         var tickets = repository.findAll(PageRequest.of(0, BATCH_SIZE));
         var tasks = new ArrayList<Callable<Void>>();
@@ -37,7 +36,7 @@ class TicketVectorStoreDataLoader {
                 .forEach(tasks::add);
 
         BatchUtils.runTasksMultithreaded(tasks);
-        log.info("DONE");
+        log.info("DONE LOADING TICKETS");
     }
 
     @AllArgsConstructor
@@ -50,12 +49,9 @@ class TicketVectorStoreDataLoader {
         public Void call() {
             try {
                 log.info("Started VectorBuildTask id: {}", taskId);
-                var publications = repository.findAll(PageRequest.of(taskId, BATCH_SIZE));
-                var mappedPublications = publications
-                        .map(Ticket::toDocument)
-                        .toList();
-
-                vectorStore.accept(mappedPublications);
+                var tickets = repository.findAll(PageRequest.of(taskId, BATCH_SIZE));
+                var ticketIds = tickets.map(Ticket::getId).toSet();
+                ticketVectorStoreRepository.storeTicketInVectorStore(ticketIds);
                 log.info("Finished VectorBuildTask id: {}", taskId);
             } catch (Exception e) {
                 log.error("Failed task id: {}", taskId, e);

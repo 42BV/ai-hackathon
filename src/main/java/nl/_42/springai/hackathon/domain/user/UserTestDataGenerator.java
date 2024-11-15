@@ -1,4 +1,4 @@
-package nl._42.springai.hackathon.testdata.user;
+package nl._42.springai.hackathon.domain.user;
 
 import java.io.BufferedReader;
 import java.io.IOException;

@@ -44,6 +44,15 @@ public record UserSqlRequest(
                          start_date: timestamp
                          end_date: timestamp
                          keywords: varchar(256)
+                         
+                 ticket table:
+                        id: bigint
+                        user_id bigint -> FK to app_user.id
+                        title: varchar(255)
+                        created_at: timestamp
+                        comments: jsonb -> structure as follows: ["Comment 1", "Comment2"]
+                        description: text
+                        completed: boolean
                 """)
         String query
 ) {

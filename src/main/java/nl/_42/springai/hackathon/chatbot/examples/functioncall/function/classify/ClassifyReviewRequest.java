@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyDescription;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonClassDescription("Update (classify) a review in the database")
+@JsonClassDescription("Classify a review in the database")
 public record ClassifyReviewRequest(
 
         @JsonProperty(required = true, value = "id")
@@ -14,7 +14,7 @@ public record ClassifyReviewRequest(
         long id,
 
         @JsonProperty(required = true, value = "score")
-        @JsonPropertyDescription("Value between 1 and 10, 1 = bad, 10 = amazing")
+        @JsonPropertyDescription("Value between 1 and 10, 1 = bad, 10 = amazing. Should be based on the review field")
         long score,
 
         @JsonProperty(required = true, value = "subject")

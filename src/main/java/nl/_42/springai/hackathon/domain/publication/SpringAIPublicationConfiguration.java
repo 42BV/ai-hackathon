@@ -1,4 +1,4 @@
-package nl._42.springai.hackathon.testdata.publication;
+package nl._42.springai.hackathon.domain.publication;
 
 import java.util.Set;
 

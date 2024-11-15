@@ -1,12 +1,11 @@
-package nl._42.springai.hackathon.testdata.user;
+package nl._42.springai.hackathon.domain.user;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,27 +14,39 @@ import lombok.Setter;
 import org.springframework.data.domain.Persistable;
 
 @Entity
-@Table(name = "app_user")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class User implements Persistable<Long> {
+public class UserReview implements Persistable<Long> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
+    private Long userId;
 
-    private LocalDate dateOfBirth;
+    private String review;
 
-    private Long age;
+    private LocalDateTime timestamp;
 
-    private String address;
+    /**
+     * Score should be between 0 - 10
+     * 1 = bad
+     * 5 = neutral
+     * 10 = amazing
+     * <p>
+     * We will let AI decide this
+     */
+    private Long score;
+
+    /**
+     * We will let AI decide this
+     */
+    private String subject;
 
     @Override
     public boolean isNew() {
-        return this.id == null;
+        return this.id != null;
     }
 }

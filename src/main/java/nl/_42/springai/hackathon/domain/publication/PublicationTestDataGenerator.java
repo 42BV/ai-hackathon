@@ -1,6 +1,6 @@
-package nl._42.springai.hackathon.testdata.publication;
+package nl._42.springai.hackathon.domain.publication;
 
-import static nl._42.springai.hackathon.testdata.publication.SpringAIPublicationConfiguration.AI_FUNCTION_NAMES;
+import static nl._42.springai.hackathon.domain.publication.SpringAIPublicationConfiguration.AI_FUNCTION_NAMES;
 
 import java.util.Arrays;
 import java.util.List;

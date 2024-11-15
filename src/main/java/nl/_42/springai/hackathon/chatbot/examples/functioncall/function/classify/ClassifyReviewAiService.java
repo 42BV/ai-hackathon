@@ -4,8 +4,8 @@ import java.util.function.Function;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import nl._42.springai.hackathon.testdata.user.UserReview;
-import nl._42.springai.hackathon.testdata.user.UserReviewRepository;
+import nl._42.springai.hackathon.domain.user.UserReview;
+import nl._42.springai.hackathon.domain.user.UserReviewRepository;
 
 import org.springframework.transaction.annotation.Transactional;
 
