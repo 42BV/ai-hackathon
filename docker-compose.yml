@@ -1,12 +1,12 @@
 services:
-  elasticsearch:
-    image: 'elasticsearch:8.14.3'
-    ports:
-      - '9200:9200'
-    environment:
-      - discovery.type=single-node
-      - xpack.security.enabled=false
-      - xpack.license.self_generated.type=trial
+#  elasticsearch:
+  #    image: 'elasticsearch:8.14.3'
+  #    ports:
+  #      - '9200:9200'
+  #    environment:
+  #      - discovery.type=single-node
+  #      - xpack.security.enabled=false
+  #      - xpack.license.self_generated.type=trial
   postgres:
     ports:
       - '5432:5432'
