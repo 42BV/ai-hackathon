@@ -9,6 +9,7 @@ import nl._42.springai.hackathon.testdata.file.FileVectorStoreDataLoader;
 import nl._42.springai.hackathon.testdata.publication.PublicationTestDataGenerator;
 import nl._42.springai.hackathon.testdata.publication.PublicationVectorStoreDataLoader;
 import nl._42.springai.hackathon.testdata.ticket.TicketDataLoader;
+import nl._42.springai.hackathon.testdata.ticket.TicketVectorStoreDataLoader;
 import nl._42.springai.hackathon.testdata.user.UserTestDataGenerator;
 
 import org.slf4j.Logger;
@@ -31,7 +32,8 @@ public class SpringAIConfiguration {
             FileVectorStoreDataLoader fileVectorStoreDataLoader,
             PublicationTestDataGenerator publicationTestDataGenerator,
             PublicationVectorStoreDataLoader publicationVectorStoreDataLoader,
-            TicketDataLoader ticketDataLoader
+            TicketDataLoader ticketDataLoader,
+            TicketVectorStoreDataLoader ticketVectorStoreDataLoader
     ) {
 
         return args -> {
@@ -50,6 +52,10 @@ public class SpringAIConfiguration {
                     publicationTestDataGenerator.generatePublicationTestData();
                     logger.info("Ready.");
                 }
+                case "#generate-ticket-data" -> {
+                    ticketDataLoader.generateTicketData();
+                    logger.info("Ready.");
+                }
                 case "#build-publication-vectors" -> {
                     publicationVectorStoreDataLoader.loadVectorStoreData();
                     logger.info("Ready.");
@@ -58,8 +64,8 @@ public class SpringAIConfiguration {
                     fileVectorStoreDataLoader.loadVectorStoreData();
                     logger.info("Ready.");
                 }
-                case "#generate-ticket-data" -> {
-                    ticketDataLoader.generateTicketData();
+                case "#build-ticket-vectors" -> {
+                    ticketVectorStoreDataLoader.loadVectorStoreData();
                     logger.info("Ready.");
                 }
                 case "#bye" -> {
