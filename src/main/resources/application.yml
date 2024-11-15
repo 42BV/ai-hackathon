@@ -9,7 +9,7 @@ spring:
   ai:
     vectorstore:
       elasticsearch:
-        index-name: "ai-hackathon-ticket" # Options: ai-hackathon-ticket, ai-hackathon-publication, ai-hackathon-beemovie
+        index-name: "ai-hackathon-ticket" # Options: ai-hackathon-ticket, ai-hackathon-publication, ai-hackathon-beemovie and more... (see README)
         dimensions: 3072
         initialize-schema: true
     openai:

@@ -8,7 +8,6 @@ import nl._42.springai.hackathon.chatbot.SpringAIChatBot;
 import nl._42.springai.hackathon.domain.file.FileVectorStoreDataLoader;
 import nl._42.springai.hackathon.domain.publication.PublicationTestDataGenerator;
 import nl._42.springai.hackathon.domain.publication.PublicationVectorStoreDataLoader;
-import nl._42.springai.hackathon.domain.ticket.TicketDataLoader;
 import nl._42.springai.hackathon.domain.ticket.TicketVectorStoreDataLoader;
 import nl._42.springai.hackathon.domain.user.UserTestDataGenerator;
 
@@ -32,7 +31,6 @@ public class SpringAIConfiguration {
             FileVectorStoreDataLoader fileVectorStoreDataLoader,
             PublicationTestDataGenerator publicationTestDataGenerator,
             PublicationVectorStoreDataLoader publicationVectorStoreDataLoader,
-            TicketDataLoader ticketDataLoader,
             TicketVectorStoreDataLoader ticketVectorStoreDataLoader
     ) {
 
@@ -50,10 +48,6 @@ public class SpringAIConfiguration {
                 }
                 case "#generate-publication-data" -> {
                     publicationTestDataGenerator.generatePublicationTestData();
-                    logger.info("Ready.");
-                }
-                case "#generate-ticket-data" -> {
-                    ticketDataLoader.generateTicketData();
                     logger.info("Ready.");
                 }
                 case "#build-publication-vectors" -> {

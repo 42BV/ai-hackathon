@@ -1,0 +1,680 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="1" author="tim.quist@42.nl">
+        <sql>
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (107, 612, 'Bug Report: Unable to Upload Files', '2024-11-15 17:30:45.123456',
+                    '[{"userId": 612, "content": "The file upload button is unresponsive on the desktop version."}, {"userId": 95, "content": "We identified a compatibility issue with certain browsers. Please update to the latest version of Chrome or Firefox, or try the newly patched version 1.6.2 of the app."}, {"userId": 612, "content": "I updated my browser and the issue is resolved. Thank you!"}]',
+                    'User reported being unable to upload files due to a browser compatibility issue. The problem was resolved by releasing a patch (version 1.6.2) and recommending browser updates.',
+                    true);
+
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (108, 301, 'Feature Request: Export Data to CSV', '2024-11-15 17:45:20.987654',
+                    '[{"userId": 301, "content": "It would be great to have an option to export my dashboard data to a CSV file."}, {"userId": 85, "content": "We understand this would be a useful feature, but it is not currently on our development roadmap. We’ll reconsider based on future demand."}, {"userId": 301, "content": "Thanks for the update. I hope it’s added in the future."}]',
+                    'User requested the ability to export dashboard data to a CSV file. The feature is not available, and it is not planned for the current development roadmap.',
+                    true);
+
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (109, 984, 'Error 500: Server Timeout', '2024-11-15 18:10:33.543210',
+                    '[{"userId": 984, "content": "I keep getting a server timeout error when accessing my profile settings."}, {"userId": 200, "content": "The issue was traced to a temporary overload on the server during peak hours. We’ve added additional server capacity to prevent this in the future."}, {"userId": 984, "content": "The issue seems to be resolved now. Thanks for fixing it!"}]',
+                    'User experienced a server timeout error due to high traffic. Additional server capacity was added to resolve the issue.',
+                    true);
+
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (110, 456, 'Request for Multi-Language Support', '2024-11-15 18:25:50.678912',
+                    '[{"userId": 456, "content": "Can you add multi-language support for the app? I need it in Spanish."}, {"userId": 87, "content": "We appreciate the suggestion, but multi-language support is not planned at this time. We’ll monitor demand for this feature."}, {"userId": 456, "content": "Understood. Thanks for considering it."}]',
+                    'User requested multi-language support, specifically Spanish. The feature is not currently planned, and the user was informed of this.',
+                    true);
+
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (111, 742, 'Broken Links in FAQ Section', '2024-11-15 18:40:22.345678',
+                    '[{"userId": 742, "content": "Several links in the FAQ section are broken."}, {"userId": 98, "content": "The broken links were identified and updated to point to the correct resources. Please check again."}, {"userId": 742, "content": "The links are working now. Thanks for fixing this quickly!"}]',
+                    'User reported broken links in the FAQ section. The issue was resolved by identifying and updating the links to the correct resources.',
+                    true);
+
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (112, 298, 'Request for Integration with External CRM', '2024-11-15 18:55:30.432198',
+                    '[{"userId": 298, "content": "Is it possible to integrate this app with XYZ CRM?"}, {"userId": 150, "content": "Unfortunately, integration with XYZ CRM is not supported at this time. We suggest using the manual export/import feature as a workaround."}, {"userId": 298, "content": "Thanks for letting me know. I’ll try the workaround."}]',
+                    'User requested integration with an external CRM (XYZ). The feature is not supported, but a manual export/import workaround was suggested.',
+                    true);
+
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (113, 812, 'Incorrect Billing Amount', '2024-11-15 19:10:45.123789',
+                    '[{"userId": 812, "content": "My invoice shows an extra charge of $15 that I didn’t authorize."}, {"userId": 73, "content": "We reviewed your account and identified the extra charge as a duplicate transaction. A refund has been issued, and the invoice has been corrected."}, {"userId": 812, "content": "I received the refund. Thanks for resolving this quickly!"}]',
+                    'User reported an incorrect billing amount due to a duplicate transaction. The extra charge was refunded, and the invoice was corrected.',
+                    true);
+
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (114, 675, 'App Crashes on iOS 16.2', '2024-11-15 19:25:33.987654',
+                    '[{"userId": 675, "content": "The app crashes immediately after launching on iOS 16.2."}, {"userId": 150, "content": "We identified a compatibility issue with iOS 16.2. A new version (2.1.1) with a fix has been released. Please update the app."}, {"userId": 675, "content": "Updated to 2.1.1, and it works perfectly now. Thanks!"}]',
+                    'User experienced app crashes due to an incompatibility with iOS 16.2. The issue was resolved by releasing an updated version (2.1.1) of the app.',
+                    true);
+
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (115, 934, 'Lost Access to Account After Email Change', '2024-11-15 19:40:55.456321',
+                    '[{"userId": 934, "content": "I changed my email, and now I can’t access my account."}, {"userId": 45, "content": "We’ve verified your identity and updated your account with the new email. You should now be able to log in using the updated email address."}, {"userId": 934, "content": "I can log in now. Thank you for your help!"}]',
+                    'User lost access to their account after updating their email. The issue was resolved by verifying their identity and manually updating the email in the system.',
+                    true);
+
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (116, 201, 'Two-Factor Authentication Not Working', '2024-11-15 19:55:40.345678',
+                    '[{"userId": 201, "content": "The 2FA code I receive via SMS is not working."}, {"userId": 92, "content": "We discovered a time synchronization issue on our SMS providers server. The issue has been fixed, and you should now receive valid codes."}, {"userId": 201, "content": "I tried again, and it works now. Thanks for fixing it!"}]',
+                    'User reported that two-factor authentication codes were not working. The issue was due to a time synchronization error on the SMS provider’s server, which was corrected.',
+                    true);
+
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (117, 748, 'Notification Settings Not Saving', '2024-11-15 20:10:22.678901',
+                    '[{"userId": 748, "content": "Changes to my notification preferences are not saving."}, {"userId": 81, "content": "We found a database update issue preventing changes from being saved. This has been fixed, and your preferences have been updated as requested."}, {"userId": 748, "content": "Everything works now. Thanks for sorting this out!"}]',
+                    'User reported that notification preferences were not saving due to a database update issue. The issue was resolved, and the preferences were updated.',
+                    true);
+
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (118, 329, 'Unable to Add Payment Method', '2024-11-15 20:25:50.456789',
+                    '[{"userId": 329, "content": "I can’t add a new payment method to my account."}, {"userId": 105, "content": "The issue was caused by a validation error in our payment gateway. We’ve corrected the issue, and you can now add your payment method successfully."}, {"userId": 329, "content": "I’ve added my card now. Thanks for the quick fix!"}]',
+                    'User was unable to add a payment method due to a validation error in the payment gateway. The issue was fixed, and the user successfully added their payment method.',
+                    true);
+
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (119, 476, 'Account Locked Due to Failed Login Attempts', '2024-11-15 20:40:15.567123',
+                    '[{"userId": 476, "content": "My account is locked after too many failed login attempts."}, {"userId": 30, "content": "We’ve manually unlocked your account and recommend resetting your password to ensure security."}, {"userId": 476, "content": "I reset my password and can access my account now. Thanks for your help!"}]',
+                    'User’s account was locked due to multiple failed login attempts. The account was manually unlocked, and the user reset their password for security.',
+                    true);
+
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (120, 567, 'Email Notifications Not Being Sent', '2024-11-15 20:55:12.789012',
+                    '[{"userId": 567, "content": "I am not receiving any email notifications."}, {"userId": 65, "content": "We identified an issue with our email delivery service configuration. The configuration was updated, and notifications have been re-sent to your email."}, {"userId": 567, "content": "I received the notifications now. Thank you!"}]',
+                    'User reported not receiving email notifications due to a configuration issue with the email delivery service. The configuration was updated, and notifications were re-sent.',
+                    true);
+
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (121, 892, 'Error Saving Profile Changes', '2024-11-15 21:10:33.456890',
+                    '[{"userId": 892, "content": "When I try to save changes to my profile, I get an error."}, {"userId": 105, "content": "The issue was due to a missing field validation on the server. The validation logic has been fixed, and your changes have been saved."}, {"userId": 892, "content": "I was able to update my profile now. Thanks!"}]',
+                    'User encountered an error saving profile changes due to a missing field validation. The validation was added, and the issue was resolved.',
+                    true);
+
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (122, 345, 'Payment Not Processed', '2024-11-15 21:25:50.678923',
+                    '[{"userId": 345, "content": "I made a payment, but it hasn’t been processed."}, {"userId": 47, "content": "The payment gateway experienced a temporary outage. Your payment has been manually verified and marked as completed."}, {"userId": 345, "content": "The payment is showing as completed now. Thanks for the assistance!"}]',
+                    'User’s payment was not processed due to a temporary outage in the payment gateway. The payment was manually verified and marked as completed.',
+                    true);
+
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (123, 671, 'Files Not Syncing Between Devices', '2024-11-15 21:40:22.345678',
+                    '[{"userId": 671, "content": "Files I upload on my phone are not appearing on my desktop app."}, {"userId": 90, "content": "We found a sync error caused by a caching issue in the desktop app. Clearing the cache or updating to version 2.3.4 resolves the problem."}, {"userId": 671, "content": "I updated the app, and syncing works now. Thank you!"}]',
+                    'User reported files not syncing between devices due to a caching issue in the desktop app. Updating to version 2.3.4 resolved the issue.',
+                    true);
+
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (124, 438, 'Incorrect Time Zone in Reports', '2024-11-15 21:55:14.876543',
+                    '[{"userId": 438, "content": "Reports show the wrong time zone for my transactions."}, {"userId": 78, "content": "The issue was caused by a server-side misconfiguration of time zone settings. The settings have been updated to reflect your local time zone."}, {"userId": 438, "content": "The reports now show the correct time zone. Thanks for fixing this!"}]',
+                    'User reported incorrect time zone information in reports due to a server misconfiguration. The settings were updated to reflect the correct time zone.',
+                    true);
+
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (125, 982, 'App Freezes When Adding Notes', '2024-11-15 22:10:40.123456',
+                    '[{"userId": 982, "content": "The app freezes whenever I try to add notes to a task."}, {"userId": 120, "content": "We found a bug in the note-saving logic. A hotfix (v3.1.2) has been deployed to address this issue. Please update the app."}, {"userId": 982, "content": "I updated the app, and the issue is resolved. Thanks for the quick fix!"}]',
+                    'User reported the app freezing when adding notes due to a bug in the note-saving logic. A hotfix (v3.1.2) was deployed to resolve the issue.',
+                    true);
+
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (126, 569, 'Unable to Delete Account', '2024-11-15 22:25:12.567890',
+                    '[{"userId": 569, "content": "I am unable to delete my account through the settings."}, {"userId": 48, "content": "The issue was traced to a missing backend endpoint for the delete operation. The endpoint has been re-deployed, and your account has been deleted successfully."}, {"userId": 569, "content": "Thanks for resolving this issue."}]',
+                    'User reported being unable to delete their account due to a missing backend endpoint. The endpoint was restored, and the account was successfully deleted.',
+                    true);
+
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (127, 405, 'Incorrect Display of Subscription Status', '2024-11-15 22:40:50.234567',
+                    '[{"userId": 405, "content": "My subscription shows as expired, but I renewed it last week."}, {"userId": 88, "content": "The renewal was not reflected due to a synchronization delay in our database. We’ve manually updated your subscription status to active."}, {"userId": 405, "content": "My subscription is now showing as active. Thank you!"}]',
+                    'User’s subscription status showed as expired despite renewal due to a database synchronization delay. The status was manually updated to active.',
+                    true);
+
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (128, 712, 'Unable to Connect to Wi-Fi in App', '2024-11-15 22:55:33.789012',
+                    '[{"userId": 712, "content": "The app is not connecting to my Wi-Fi."}, {"userId": 35, "content": "Please ensure that your Wi-Fi network is not blocking the app’s traffic. Try restarting your router and reconnecting."}, {"userId": 712, "content": "I restarted the router, and the app connects fine now. Thank you!"}]',
+                    'User was unable to connect to Wi-Fi through the app. The issue was resolved after the user restarted their router and ensured the network was not blocking traffic.',
+                    true);
+
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (129, 847, 'Error Uploading Large Files', '2024-11-15 23:10:22.123456',
+                    '[{"userId": 847, "content": "I’m getting an error when trying to upload files larger than 50MB."}, {"userId": 52, "content": "Please check if your internet connection is stable and try compressing the file before uploading."}, {"userId": 847, "content": "I compressed the file, and it uploaded without any issues. Thanks for the suggestion!"}]',
+                    'User reported errors when uploading large files. The issue was resolved after the user compressed the file as suggested.',
+                    true);
+
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (130, 219, 'App Not Loading After Update', '2024-11-15 23:25:50.234567',
+                    '[{"userId": 219, "content": "The app is stuck on the loading screen after the latest update."}, {"userId": 88, "content": "This may be due to residual cache data. Try clearing the app cache through your phone settings and restarting the app."}, {"userId": 219, "content": "Clearing the cache fixed the issue. Thanks for the help!"}]',
+                    'User reported the app not loading after an update. Clearing the app cache resolved the issue.',
+                    true);
+
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (131, 634, 'Account Locked After Password Reset', '2024-11-15 23:40:14.678901',
+                    '[{"userId": 634, "content": "I reset my password, but now my account is locked."}, {"userId": 101, "content": "This happens if too many login attempts are made with the old password. Wait 15 minutes and log in with the new password."}, {"userId": 634, "content": "I waited and logged in with the new password. It’s working now. Thanks!"}]',
+                    'User’s account was locked after a password reset due to repeated failed attempts with the old password. The issue resolved itself after the user waited and logged in with the correct credentials.',
+                    true);
+
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (132, 758, 'Cannot Access Shared Folder', '2024-11-15 23:55:12.567890',
+                    '[{"userId": 758, "content": "I’m unable to access a shared folder in the app."}, {"userId": 37, "content": "Please check if the folder owner has granted you the correct permissions. Try asking them to resend the access link."}, {"userId": 758, "content": "The owner updated my permissions, and I can access the folder now. Thank you!"}]',
+                    'User was unable to access a shared folder due to insufficient permissions. The issue was resolved after the folder owner updated the permissions.',
+                    true);
+
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (133, 521, 'Slow Loading Times on Dashboard', '2024-11-16 00:10:45.123456',
+                    '[{"userId": 521, "content": "My dashboard takes a long time to load."}, {"userId": 91, "content": "Try clearing your browser cache and disabling any ad blockers, as they might interfere with the loading process."}, {"userId": 521, "content": "I cleared the cache and disabled my ad blocker. It’s much faster now. Thanks for the tip!"}]',
+                    'User reported slow loading times on the dashboard. The issue was resolved after the user cleared their browser cache and disabled ad blockers.',
+                    true);
+
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (134, 389, 'Cannot Play Videos in App', '2024-11-16 00:25:22.345678',
+                    '[{"userId": 389, "content": "Videos in the app won’t play for me."}, {"userId": 66, "content": "Ensure your device has the latest system updates and that permissions for media access are enabled for the app."}, {"userId": 389, "content": "I updated my system and enabled media access permissions. Videos are playing now. Thank you!"}]',
+                    'User could not play videos in the app due to outdated system updates and disabled permissions. The issue was resolved after the user updated their system and enabled media permissions.',
+                    true);
+
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (135, 456, 'App Not Sending Push Notifications', '2024-11-16 00:40:12.345678',
+                    '[{"userId": 456, "content": "I’m not receiving any push notifications from the app."}, {"userId": 78, "content": "Check your phone’s notification settings to ensure that push notifications are enabled for the app."}, {"userId": 456, "content": "I enabled notifications in my phone settings, and it’s working now. Thanks!"}]',
+                    'User was not receiving push notifications due to disabled notification settings on their phone. The issue was resolved after the user enabled notifications.',
+                    true);
+
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (136, 398, 'Unable to Save Document Edits', '2024-11-16 00:55:33.789012',
+                    '[{"userId": 398, "content": "The app won’t let me save edits to my document."}, {"userId": 62, "content": "Ensure you have sufficient storage space on your device, as low storage can prevent saving files."}, {"userId": 398, "content": "I cleared some storage, and now it saves fine. Thanks for the help!"}]',
+                    'User was unable to save document edits due to insufficient storage space on their device. The issue was resolved after the user cleared some storage.',
+                    true);
+
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (137, 823, 'Login Redirect Loop', '2024-11-16 01:10:22.567890',
+                    '[{"userId": 823, "content": "I’m stuck in a login redirect loop and can’t access my account."}, {"userId": 34, "content": "This can happen due to a corrupted browser session. Clear your browser’s cookies and cache, then try logging in again."}, {"userId": 823, "content": "I cleared cookies and cache, and I can log in now. Thanks!"}]',
+                    'User experienced a login redirect loop due to a corrupted browser session. Clearing cookies and cache resolved the issue.',
+                    true);
+
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (138, 290, 'Unable to Connect to External Drive', '2024-11-16 01:25:50.234567',
+                    '[{"userId": 290, "content": "The app won’t recognize my external drive."}, {"userId": 91, "content": "Ensure the drive is formatted to a supported file system (e.g., NTFS or FAT32) and try reconnecting it."}, {"userId": 290, "content": "I reformatted the drive to FAT32, and it’s now recognized. Thanks for the advice!"}]',
+                    'User’s external drive was not recognized due to an unsupported file system. Reformatting the drive to FAT32 resolved the issue.',
+                    true);
+
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (139, 472, 'Audio Not Playing During Calls', '2024-11-16 01:40:14.678901',
+                    '[{"userId": 472, "content": "I can’t hear any audio during calls."}, {"userId": 63, "content": "Check if your device’s microphone and speaker permissions are enabled for the app, and ensure the volume is not muted."}, {"userId": 472, "content": "I enabled permissions and adjusted the volume. Audio works now. Thanks!"}]',
+                    'User reported no audio during calls due to disabled microphone and speaker permissions. Enabling permissions and adjusting the volume resolved the issue.',
+                    true);
+
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (140, 631, 'Cannot Install App Update', '2024-11-16 01:55:12.789012',
+                    '[{"userId": 631, "content": "The app update won’t install on my phone."}, {"userId": 51, "content": "Ensure you have enough free storage space and a stable internet connection. Restart your phone and try again."}, {"userId": 631, "content": "I freed up space and restarted my phone. The update installed successfully. Thanks!"}]',
+                    'User was unable to install an app update due to insufficient storage and a pending restart. Clearing space and restarting the phone resolved the issue.',
+                    true);
+
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (141, 587, 'Document Preview Not Loading', '2024-11-16 02:10:22.345678',
+                    '[{"userId": 587, "content": "The document preview isn’t loading in the app."}, {"userId": 87, "content": "Ensure the document file type is supported by the app and that you have the latest app version installed."}, {"userId": 587, "content": "I converted the file to a supported type, and the preview loads now. Thank you!"}]',
+                    'User’s document preview was not loading due to an unsupported file type. Converting the document to a supported format resolved the issue.',
+                    true);
+
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (142, 718, 'Can’t Sync Contacts', '2024-11-16 02:25:12.567890',
+                    '[{"userId": 718, "content": "My contacts won’t sync with the app."}, {"userId": 54, "content": "Ensure that contact permissions are enabled for the app in your phone’s settings and that your account is linked properly."}, {"userId": 718, "content": "I enabled permissions and relinked my account. Contacts are syncing now. Thanks!"}]',
+                    'User reported contact sync issues due to disabled permissions and an improperly linked account. Enabling permissions and relinking the account resolved the issue.',
+                    true);
+
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (143, 816, 'Payment Declined Despite Sufficient Funds', '2024-11-16 02:40:33.789012',
+                    '[{"userId": 816, "content": "My payment was declined, but I have sufficient funds."}, {"userId": 88, "content": "This might be due to your bank rejecting the transaction. Please contact your bank to verify and allow the payment."}, {"userId": 816, "content": "I contacted my bank and resolved the issue. Payment went through now. Thanks!"}]',
+                    'User’s payment was declined due to bank-side restrictions. The issue was resolved after the user contacted their bank to approve the transaction.',
+                    true);
+
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (144, 925, 'File Uploads Work Only on Desktop', '2024-11-16 03:10:22.123456',
+                    '[{"userId": 925, "content": "I can upload files on my desktop but not on my mobile device."}, {"userId": 50, "content": "We’ve confirmed the issue is related to the mobile app’s upload logic. A workaround is to use the desktop version until a fix is deployed."}, {"userId": 925, "content": "I’ll use the desktop version for now. Let me know when the fix is ready."}]',
+                    'User reported file uploads not working on mobile. A temporary workaround (using the desktop version) was provided, and the issue will be fixed in a future update. A new ticket was opened for this with the dev team.',
+                    true);
+
+
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (145, 713, 'Can’t Set a Default Language', '2024-11-16 03:25:50.567890',
+                    '[{"userId": 713, "content": "I’d like to set a default language for my account, but I can’t find an option."}, {"userId": 95, "content": "This feature wasn’t available before, but we’ve added it in the latest update. Please update to version 1.6.3 to set your default language."}, {"userId": 713, "content": "I updated the app and set my default language. Thanks for adding this!"}]',
+                    'User requested the ability to set a default language. This feature was added in version 1.6.3, resolving the issue.',
+                    true);
+
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (146, 387, 'Slow Response Time for API Calls', '2024-11-16 03:40:22.345678',
+                    '[{"userId": 387, "content": "My application’s API requests are taking too long to respond."}, {"userId": 102, "content": "This issue was due to high traffic on our servers. The engineering team has optimized the API response time by adding a caching layer."}, {"userId": 387, "content": "The API response time is much better now. Thanks for fixing it!"}]',
+                    'User reported slow API response times. The engineering team optimized the system by adding a caching layer, improving response times.',
+                    true);
+
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (147, 488, 'How to Configure Webhooks?', '2024-11-16 03:55:12.567890',
+                    '[{"userId": 488, "content": "I need help setting up webhooks for my account."}, {"userId": 73, "content": "We’ve added detailed instructions in our Help Center. Please refer to the guide here: https://help.example.com/webhooks-setup."}, {"userId": 488, "content": "The guide was clear and helpful. I configured the webhooks successfully!"}]',
+                    'User needed help setting up webhooks. They were directed to a knowledge base article, which resolved their issue.',
+                    true);
+
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (148, 342, 'Account Showing Incorrect Balance', '2024-11-16 04:10:33.789012',
+                    '[{"userId": 342, "content": "My account is showing an incorrect balance."}, {"userId": 100, "content": "The balance reflects your pending transactions. Please check your transaction history for more details."}, {"userId": 342, "content": "You’re right, the pending transactions explain it. Thanks for clarifying!"}]',
+                    'User reported an incorrect account balance, which was due to pending transactions. No action was required after explaining the situation.',
+                    true);
+
+
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (249, 821, 'Push notifications not stopping', '2024-11-16 08:35:12',
+                    '[{"userId": 821, "content": "Why is push notifications not stopping happening?"}, {"userId": 236, "content": "This is due to: The issue will be addressed in an upcoming patch.. We recommend taking action."}, {"userId": 821, "content": "I followed the recommendation, and it’s resolved now."}]',
+                    'The user reported an issue: push notifications not stopping. The issue will be addressed in an upcoming patch.', false);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (250, 271, 'Error: Duplicate email IDs', '2024-11-16 08:40:12',
+                    '[{"userId": 271, "content": "Can you help me with error: duplicate email ids?"}, {"userId": 681, "content": "We’ve identified the cause as: The issue was resolved by updating the app version.. Please follow the steps to resolve it."}, {"userId": 271, "content": "Following your advice solved the problem. Much appreciated!"}]',
+                    'The user reported an issue: error: duplicate email ids. The issue was resolved by updating the app version.', true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (251, 690, 'Notification delivery delays', '2024-11-16 08:45:12',
+                    '[{"userId": 690, "content": "Can you help me with notification delivery delays?"}, {"userId": 618, "content": "We’ve identified the cause as: Feature enhancement added in the latest system update.. Please follow the steps to resolve it."}, {"userId": 690, "content": "Following your advice solved the problem. Much appreciated!"}]',
+                    'The user reported an issue: notification delivery delays. Feature enhancement added in the latest system update.', true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (252, 913, 'Unable to access archived projects', '2024-11-16 08:50:12',
+                    '[{"userId": 913, "content": "Can you help me with unable to access archived projects?"}, {"userId": 378, "content": "We’ve identified the cause as: User fixed the problem after following specific instructions.. Please follow the steps to resolve it."}, {"userId": 913, "content": "Following your advice solved the problem. Much appreciated!"}]',
+                    'The user reported an issue: unable to access archived projects. User fixed the problem after following specific instructions.', true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (253, 900, 'Failed to retrieve archived logs', '2024-11-16 08:55:12',
+                    '[{"userId": 900, "content": "I’m experiencing issues with failed to retrieve archived logs."}, {"userId": 468, "content": "We have reviewed the issue and suggest: Feature enhancement added in the latest system update.."}, {"userId": 900, "content": "I tried that, and it worked perfectly. Thanks!"}]',
+                    'The user reported an issue: failed to retrieve archived logs. Feature enhancement added in the latest system update.', true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (254, 260, 'Sync error with Google Drive', '2024-11-16 09:00:12',
+                    '[{"userId": 260, "content": "I’m experiencing issues with sync error with google drive."}, {"userId": 115, "content": "We have reviewed the issue and suggest: No action required, issue resolved itself after user clarification.."}, {"userId": 260, "content": "I tried that, and it worked perfectly. Thanks!"}]',
+                    'The user reported an issue: sync error with google drive. No action required, issue resolved itself after user clarification.', true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (255, 271, 'Support for custom themes', '2024-11-16 09:05:12',
+                    '[{"userId": 271, "content": "Can you help me with support for custom themes?"}, {"userId": 969, "content": "We’ve identified the cause as: The issue was resolved by updating the app version.. Please follow the steps to resolve it."}, {"userId": 271, "content": "Following your advice solved the problem. Much appreciated!"}]',
+                    'The user reported an issue: support for custom themes. The issue was resolved by updating the app version.', true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (256, 444, 'Integration with payment gateways', '2024-11-16 09:10:12',
+                    '[{"userId": 444, "content": "Can you help me with integration with payment gateways?"}, {"userId": 370, "content": "We’ve identified the cause as: User fixed the problem after following specific instructions.. Please follow the steps to resolve it."}, {"userId": 444, "content": "Following your advice solved the problem. Much appreciated!"}]',
+                    'The user reported an issue: integration with payment gateways. User fixed the problem after following specific instructions.', true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (257, 373, 'Request for accessibility improvements', '2024-11-16 09:15:12',
+                    '[{"userId": 373, "content": "Can you help me with requested accessibility improvements?"}, {"userId": 926, "content": "We’ve identified the cause as: The issue will be addressed in an upcoming patch.. Please follow the steps to resolve it."}, {"userId": 373, "content": "Following your advice solved the problem. Much appreciated!"}]',
+                    'The user reported an issue: requested accessibility improvements. The issue will be addressed in an upcoming patch.', false);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (258, 516, 'Push notification duplication bug', '2024-11-16 09:20:12',
+                    '[{"userId": 516, "content": "I’m experiencing issues with push notification duplication an issue."}, {"userId": 87, "content": "We have reviewed the issue and suggest: Feature enhancement added in the latest system update.."}, {"userId": 516, "content": "I tried that, and it worked perfectly. Thanks!"}]',
+                    'The user reported an issue: push notification duplication an issue. Feature enhancement added in the latest system update.', true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (259, 993, 'Error updating user roles', '2024-11-16 09:25:12',
+                    '[{"userId": 993, "content": "Why is error updating user roles happening?"}, {"userId": 501, "content": "This is due to: The issue was resolved by updating the app version.. We recommend taking action."}, {"userId": 993, "content": "I followed the recommendation, and it’s resolved now."}]',
+                    'The user reported an issue: error updating user roles. The issue was resolved by updating the app version.', true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (260, 298, 'Request for export in PDF format', '2024-11-16 09:30:12',
+                    '[{"userId": 298, "content": "I’m experiencing issues with requested export in pdf format."}, {"userId": 79, "content": "We have reviewed the issue and suggest: The issue was resolved by updating the app version.."}, {"userId": 298, "content": "I tried that, and it worked perfectly. Thanks!"}]',
+                    'The user reported an issue: requested export in pdf format. The issue was resolved by updating the app version.', true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (261, 298, 'Feature request: language toggle button', '2024-11-16 09:35:12',
+                    '[{"userId": 298, "content": "Can you help me with a feature request: language toggle button?"}, {"userId": 215, "content": "We’ve identified the cause as: The issue will be addressed in an upcoming patch.. Please follow the steps to resolve it."}, {"userId": 298, "content": "Following your advice solved the problem. Much appreciated!"}]',
+                    'The user reported an issue: a feature request: language toggle button. The issue will be addressed in an upcoming patch.', false);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (262, 616, 'Error updating user roles', '2024-11-16 09:40:12',
+                    '[{"userId": 616, "content": "I’m experiencing issues with error updating user roles."}, {"userId": 581, "content": "We have reviewed the issue and suggest: Issue caused by a third-party service, resolved with external support.."}, {"userId": 616, "content": "I tried that, and it worked perfectly. Thanks!"}]',
+                    'The user reported an issue: error updating user roles. Issue caused by a third-party service, resolved with external support.', true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (263, 969, 'Request for bulk data upload', '2024-11-16 09:45:12',
+                    '[{"userId": 969, "content": "Why is requested bulk data upload happening?"}, {"userId": 99, "content": "This is due to: The engineering team deployed a fix to address the bug.. We recommend taking action."}, {"userId": 969, "content": "I followed the recommendation, and it’s resolved now."}]',
+                    'The user reported an issue: requested bulk data upload. The engineering team deployed a fix to address the bug.', true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (264, 132, 'Error fetching transaction history', '2024-11-16 09:50:12',
+                    '[{"userId": 132, "content": "Why is error fetching transaction history happening?"}, {"userId": 246, "content": "This is due to: Feature enhancement added in the latest system update.. We recommend taking action."}, {"userId": 132, "content": "I followed the recommendation, and it’s resolved now."}]',
+                    'The user reported an issue: error fetching transaction history. Feature enhancement added in the latest system update.', true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (265, 965, 'Error updating user roles', '2024-11-16 09:55:12',
+                    '[{"userId": 965, "content": "Why is error updating user roles happening?"}, {"userId": 65, "content": "This is due to: The engineering team deployed a fix to address the bug.. We recommend taking action."}, {"userId": 965, "content": "I followed the recommendation, and it’s resolved now."}]',
+                    'The user reported an issue: error updating user roles. The engineering team deployed a fix to address the bug.', true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (266, 1000, 'Support for screen readers', '2024-11-16 10:00:12',
+                    '[{"userId": 1000, "content": "Why is support for screen readers happening?"}, {"userId": 137, "content": "This is due to: User fixed the problem after following specific instructions.. We recommend taking action."}, {"userId": 1000, "content": "I followed the recommendation, and it’s resolved now."}]',
+                    'The user reported an issue: support for screen readers. User fixed the problem after following specific instructions.', true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (267, 616, 'Unable to access archived projects', '2024-11-16 10:05:12',
+                    '[{"userId": 616, "content": "I’m experiencing issues with unable to access archived projects."}, {"userId": 71, "content": "We have reviewed the issue and suggest: The issue will be addressed in an upcoming patch.."}, {"userId": 616, "content": "I tried that, and it worked perfectly. Thanks!"}]',
+                    'The user reported an issue: unable to access archived projects. The issue will be addressed in an upcoming patch.', false);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (268, 132, 'Bug in pagination of results', '2024-11-16 10:10:12',
+                    '[{"userId": 132, "content": "Can you help me with an issue in pagination of results?"}, {"userId": 816, "content": "We’ve identified the cause as: User fixed the problem after following specific instructions.. Please follow the steps to resolve it."}, {"userId": 132, "content": "Following your advice solved the problem. Much appreciated!"}]',
+                    'The user reported an issue: an issue in pagination of results. User fixed the problem after following specific instructions.', true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (269, 769, 'Request for password strength checker', '2024-11-16 10:15:12',
+                    '[{"userId": 769, "content": "I’m experiencing issues with requested password strength checker."}, {"userId": 52, "content": "We have reviewed the issue and suggest: Feature enhancement added in the latest system update.."}, {"userId": 769, "content": "I tried that, and it worked perfectly. Thanks!"}]',
+                    'The user reported an issue: requested password strength checker. Feature enhancement added in the latest system update.', true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (270, 498, 'Notification delivery delays', '2024-11-16 10:20:12',
+                    '[{"userId": 498, "content": "Can you help me with notification delivery delays?"}, {"userId": 382, "content": "We’ve identified the cause as: User fixed the problem after following specific instructions.. Please follow the steps to resolve it."}, {"userId": 498, "content": "Following your advice solved the problem. Much appreciated!"}]',
+                    'The user reported an issue: notification delivery delays. User fixed the problem after following specific instructions.', true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (271, 513, 'Push notification duplication bug', '2024-11-16 10:25:12',
+                    '[{"userId": 513, "content": "Why is push notification duplication an issue happening?"}, {"userId": 1048, "content": "This is due to: The issue will be addressed in an upcoming patch.. We recommend taking action."}, {"userId": 513, "content": "I followed the recommendation, and it’s resolved now."}]',
+                    'The user reported an issue: push notification duplication an issue. The issue will be addressed in an upcoming patch.', false);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (272, 793, 'Bug in pagination of results', '2024-11-16 10:30:12',
+                    '[{"userId": 793, "content": "Why is an issue in pagination of results happening?"}, {"userId": 145, "content": "This is due to: The engineering team deployed a fix to address the bug.. We recommend taking action."}, {"userId": 793, "content": "I followed the recommendation, and it’s resolved now."}]',
+                    'The user reported an issue: an issue in pagination of results. The engineering team deployed a fix to address the bug.', true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (273, 425, 'Support for screen readers', '2024-11-16 10:35:12',
+                    '[{"userId": 425, "content": "Why is support for screen readers happening?"}, {"userId": 804, "content": "This is due to: No action required, issue resolved itself after user clarification.. We recommend taking action."}, {"userId": 425, "content": "I followed the recommendation, and it’s resolved now."}]',
+                    'The user reported an issue: support for screen readers. No action required, issue resolved itself after user clarification.', true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (274, 444, 'Support for custom themes', '2024-11-16 10:40:12',
+                    '[{"userId": 444, "content": "Why is support for custom themes happening?"}, {"userId": 757, "content": "This is due to: The engineering team deployed a fix to address the bug.. We recommend taking action."}, {"userId": 444, "content": "I followed the recommendation, and it’s resolved now."}]',
+                    'The user reported an issue: support for custom themes. The engineering team deployed a fix to address the bug.', true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (275, 869, 'Failed to share file link', '2024-11-16 10:45:12',
+                    '[{"userId": 869, "content": "I’m experiencing issues with failed to share file link."}, {"userId": 953, "content": "We have reviewed the issue and suggest: The engineering team deployed a fix to address the bug.."}, {"userId": 869, "content": "I tried that, and it worked perfectly. Thanks!"}]',
+                    'The user reported an issue: failed to share file link. The engineering team deployed a fix to address the bug.', true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (276, 965, 'Sync error with Google Drive', '2024-11-16 10:50:12',
+                    '[{"userId": 965, "content": "Why is sync error with google drive happening?"}, {"userId": 578, "content": "This is due to: No action required, issue resolved itself after user clarification.. We recommend taking action."}, {"userId": 965, "content": "I followed the recommendation, and it’s resolved now."}]',
+                    'The user reported an issue: sync error with google drive. No action required, issue resolved itself after user clarification.', true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (277, 793, 'Push notifications not stopping', '2024-11-16 10:55:12',
+                    '[{"userId": 793, "content": "Can you help me with push notifications not stopping?"}, {"userId": 20, "content": "We’ve identified the cause as: Issue caused by a third-party service, resolved with external support.. Please follow the steps to resolve it."}, {"userId": 793, "content": "Following your advice solved the problem. Much appreciated!"}]',
+                    'The user reported an issue: push notifications not stopping. Issue caused by a third-party service, resolved with external support.',
+                    true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (278, 458, 'Unable to access archived projects', '2024-11-16 11:00:12',
+                    '[{"userId": 458, "content": "Can you help me with unable to access archived projects?"}, {"userId": 1041, "content": "We’ve identified the cause as: The issue will be addressed in an upcoming patch.. Please follow the steps to resolve it."}, {"userId": 458, "content": "Following your advice solved the problem. Much appreciated!"}]',
+                    'The user reported an issue: unable to access archived projects. The issue will be addressed in an upcoming patch.', false);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (279, 730, 'Bug: Double charges on invoices', '2024-11-16 11:05:12',
+                    '[{"userId": 730, "content": "Why is an issue: double charges on invoices happening?"}, {"userId": 920, "content": "This is due to: User fixed the problem after following specific instructions.. We recommend taking action."}, {"userId": 730, "content": "I followed the recommendation, and it’s resolved now."}]',
+                    'The user reported an issue: an issue: double charges on invoices. User fixed the problem after following specific instructions.', true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (280, 41, 'Feature request: auto-save functionality', '2024-11-16 11:10:12',
+                    '[{"userId": 41, "content": "Can you help me with a feature request: auto-save functionality?"}, {"userId": 475, "content": "We’ve identified the cause as: No action required, issue resolved itself after user clarification.. Please follow the steps to resolve it."}, {"userId": 41, "content": "Following your advice solved the problem. Much appreciated!"}]',
+                    'The user reported an issue: a feature request: auto-save functionality. No action required, issue resolved itself after user clarification.',
+                    true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (281, 913, 'Feature request: additional report templates', '2024-11-16 11:15:12',
+                    '[{"userId": 913, "content": "Why is a feature request: additional report templates happening?"}, {"userId": 786, "content": "This is due to: The engineering team deployed a fix to address the bug.. We recommend taking action."}, {"userId": 913, "content": "I followed the recommendation, and it’s resolved now."}]',
+                    'The user reported an issue: a feature request: additional report templates. The engineering team deployed a fix to address the bug.',
+                    true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (282, 869, 'Feature request: role-based access', '2024-11-16 11:20:12',
+                    '[{"userId": 869, "content": "Can you help me with a feature request: role-based access?"}, {"userId": 315, "content": "We’ve identified the cause as: No action required, issue resolved itself after user clarification.. Please follow the steps to resolve it."}, {"userId": 869, "content": "Following your advice solved the problem. Much appreciated!"}]',
+                    'The user reported an issue: a feature request: role-based access. No action required, issue resolved itself after user clarification.',
+                    true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (283, 513, 'Bug in sorting feature', '2024-11-16 11:25:12',
+                    '[{"userId": 513, "content": "Can you help me with an issue in sorting a feature?"}, {"userId": 947, "content": "We’ve identified the cause as: No action required, issue resolved itself after user clarification.. Please follow the steps to resolve it."}, {"userId": 513, "content": "Following your advice solved the problem. Much appreciated!"}]',
+                    'The user reported an issue: an issue in sorting a feature. No action required, issue resolved itself after user clarification.', true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (284, 449, 'Feature request: recurring reminders', '2024-11-16 11:30:12',
+                    '[{"userId": 449, "content": "Why is a feature request: recurring reminders happening?"}, {"userId": 876, "content": "This is due to: No action required, issue resolved itself after user clarification.. We recommend taking action."}, {"userId": 449, "content": "I followed the recommendation, and it’s resolved now."}]',
+                    'The user reported an issue: a feature request: recurring reminders. No action required, issue resolved itself after user clarification.',
+                    true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (285, 793, 'Push notifications not stopping', '2024-11-16 11:35:12',
+                    '[{"userId": 793, "content": "Why is push notifications not stopping happening?"}, {"userId": 51, "content": "This is due to: The engineering team deployed a fix to address the bug.. We recommend taking action."}, {"userId": 793, "content": "I followed the recommendation, and it’s resolved now."}]',
+                    'The user reported an issue: push notifications not stopping. The engineering team deployed a fix to address the bug.', true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (286, 516, 'Push notifications not stopping', '2024-11-16 11:40:12',
+                    '[{"userId": 516, "content": "I’m experiencing issues with push notifications not stopping."}, {"userId": 594, "content": "We have reviewed the issue and suggest: Feature enhancement added in the latest system update.."}, {"userId": 516, "content": "I tried that, and it worked perfectly. Thanks!"}]',
+                    'The user reported an issue: push notifications not stopping. Feature enhancement added in the latest system update.', true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (287, 900, 'Feature request: recurring reminders', '2024-11-16 11:45:12',
+                    '[{"userId": 900, "content": "Why is a feature request: recurring reminders happening?"}, {"userId": 243, "content": "This is due to: The engineering team deployed a fix to address the bug.. We recommend taking action."}, {"userId": 900, "content": "I followed the recommendation, and it’s resolved now."}]',
+                    'The user reported an issue: a feature request: recurring reminders. The engineering team deployed a fix to address the bug.', true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (288, 344, 'Support for screen readers', '2024-11-16 11:50:12',
+                    '[{"userId": 344, "content": "Can you help me with support for screen readers?"}, {"userId": 654, "content": "We’ve identified the cause as: The engineering team deployed a fix to address the bug.. Please follow the steps to resolve it."}, {"userId": 344, "content": "Following your advice solved the problem. Much appreciated!"}]',
+                    'The user reported an issue: support for screen readers. The engineering team deployed a fix to address the bug.', true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (289, 969, 'Cannot reset two-factor authentication', '2024-11-16 11:55:12',
+                    '[{"userId": 969, "content": "I’m experiencing issues with cannot reset two-factor authentication."}, {"userId": 303, "content": "We have reviewed the issue and suggest: The issue will be addressed in an upcoming patch.."}, {"userId": 969, "content": "I tried that, and it worked perfectly. Thanks!"}]',
+                    'The user reported an issue: cannot reset two-factor authentication. The issue will be addressed in an upcoming patch.', false);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (290, 793, 'Integration with payment gateways', '2024-11-16 12:00:12',
+                    '[{"userId": 793, "content": "Why is integration with payment gateways happening?"}, {"userId": 949, "content": "This is due to: Issue caused by a third-party service, resolved with external support.. We recommend taking action."}, {"userId": 793, "content": "I followed the recommendation, and it’s resolved now."}]',
+                    'The user reported an issue: integration with payment gateways. Issue caused by a third-party service, resolved with external support.',
+                    true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (291, 458, 'Feature request: auto-save functionality', '2024-11-16 12:05:12',
+                    '[{"userId": 458, "content": "Why is a feature request: auto-save functionality happening?"}, {"userId": 953, "content": "This is due to: User fixed the problem after following specific instructions.. We recommend taking action."}, {"userId": 458, "content": "I followed the recommendation, and it’s resolved now."}]',
+                    'The user reported an issue: a feature request: auto-save functionality. User fixed the problem after following specific instructions.',
+                    true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (292, 719, 'Notification delivery delays', '2024-11-16 12:10:12',
+                    '[{"userId": 719, "content": "Can you help me with notification delivery delays?"}, {"userId": 990, "content": "We’ve identified the cause as: Issue caused by a third-party service, resolved with external support.. Please follow the steps to resolve it."}, {"userId": 719, "content": "Following your advice solved the problem. Much appreciated!"}]',
+                    'The user reported an issue: notification delivery delays. Issue caused by a third-party service, resolved with external support.', true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (293, 174, 'Bug report: Infinite loading spinner', '2024-11-16 12:15:12',
+                    '[{"userId": 174, "content": "Can you help me with an issue report: infinite loading spinner?"}, {"userId": 445, "content": "We’ve identified the cause as: Issue caused by a third-party service, resolved with external support.. Please follow the steps to resolve it."}, {"userId": 174, "content": "Following your advice solved the problem. Much appreciated!"}]',
+                    'The user reported an issue: an issue report: infinite loading spinner. Issue caused by a third-party service, resolved with external support.',
+                    true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (294, 819, 'Notification delivery delays', '2024-11-16 12:20:12',
+                    '[{"userId": 819, "content": "Can you help me with notification delivery delays?"}, {"userId": 8, "content": "We’ve identified the cause as: The issue will be addressed in an upcoming patch.. Please follow the steps to resolve it."}, {"userId": 819, "content": "Following your advice solved the problem. Much appreciated!"}]',
+                    'The user reported an issue: notification delivery delays. The issue will be addressed in an upcoming patch.', false);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (295, 821, 'Feature request: additional report templates', '2024-11-16 12:25:12',
+                    '[{"userId": 821, "content": "Why is a feature request: additional report templates happening?"}, {"userId": 942, "content": "This is due to: User fixed the problem after following specific instructions.. We recommend taking action."}, {"userId": 821, "content": "I followed the recommendation, and it’s resolved now."}]',
+                    'The user reported an issue: a feature request: additional report templates. User fixed the problem after following specific instructions.',
+                    true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (296, 174, 'Error processing refunds', '2024-11-16 12:30:12',
+                    '[{"userId": 174, "content": "Can you help me with error processing refunds?"}, {"userId": 66, "content": "We’ve identified the cause as: Issue caused by a third-party service, resolved with external support.. Please follow the steps to resolve it."}, {"userId": 174, "content": "Following your advice solved the problem. Much appreciated!"}]',
+                    'The user reported an issue: error processing refunds. Issue caused by a third-party service, resolved with external support.', true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (297, 965, 'Support for screen readers', '2024-11-16 12:35:12',
+                    '[{"userId": 965, "content": "Why is support for screen readers happening?"}, {"userId": 938, "content": "This is due to: The issue was resolved by updating the app version.. We recommend taking action."}, {"userId": 965, "content": "I followed the recommendation, and it’s resolved now."}]',
+                    'The user reported an issue: support for screen readers. The issue was resolved by updating the app version.', true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (298, 458, 'Files not deleting properly', '2024-11-16 12:40:12',
+                    '[{"userId": 458, "content": "I’m experiencing issues with files not deleting properly."}, {"userId": 323, "content": "We have reviewed the issue and suggest: The engineering team deployed a fix to address the bug.."}, {"userId": 458, "content": "I tried that, and it worked perfectly. Thanks!"}]',
+                    'The user reported an issue: files not deleting properly. The engineering team deployed a fix to address the bug.', true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (299, 344, 'Delayed system notifications', '2024-11-16 16:55:12',
+                    '[{"userId": 344, "content": "Why is delayed system notifications happening?"}, {"userId": 982, "content": "This is due to: User fixed the problem after following specific instructions.. We recommend taking action."}, {"userId": 344, "content": "I followed the recommendation, and it’s resolved now."}]',
+                    'The user reported an issue: delayed system notifications. User fixed the problem after following specific instructions.', true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (300, 579, 'Cannot reset two-factor authentication', '2024-11-16 17:00:12',
+                    '[{"userId": 579, "content": "Why is cannot reset two-factor authentication happening?"}, {"userId": 364, "content": "This is due to: Feature enhancement added in the latest system update.. We recommend taking action."}, {"userId": 579, "content": "I followed the recommendation, and it’s resolved now."}]',
+                    'The user reported an issue: cannot reset two-factor authentication. Feature enhancement added in the latest system update.', true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (301, 449, 'Request for password strength checker', '2024-11-16 17:05:12',
+                    '[{"userId": 449, "content": "Can you help me with requested password strength checker?"}, {"userId": 709, "content": "We’ve identified the cause as: The problem was resolved through a backend configuration update.. Please follow the steps to resolve it."}, {"userId": 449, "content": "Following your advice solved the problem. Much appreciated!"}]',
+                    'The user reported an issue: requested password strength checker. The problem was resolved through a backend configuration update.', true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (302, 857, 'Failed to retrieve archived logs', '2024-11-16 17:10:12',
+                    '[{"userId": 857, "content": "I’m experiencing issues with failed to retrieve archived logs."}, {"userId": 172, "content": "We have reviewed the issue and suggest: The issue was resolved by updating the app version.."}, {"userId": 857, "content": "I tried that, and it worked perfectly. Thanks!"}]',
+                    'The user reported an issue: failed to retrieve archived logs. The issue was resolved by updating the app version.', true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (303, 1017, 'Bug: Double charges on invoices', '2024-11-16 17:15:12',
+                    '[{"userId": 1017, "content": "I’m experiencing issues with an issue: double charges on invoices."}, {"userId": 402, "content": "We have reviewed the issue and suggest: No action required, user misunderstanding clarified.."}, {"userId": 1017, "content": "I tried that, and it worked perfectly. Thanks!"}]',
+                    'The user reported an issue: an issue: double charges on invoices. No action required, user misunderstanding clarified.', true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (304, 298, 'Feature request: real-time collaboration', '2024-11-16 17:20:12',
+                    '[{"userId": 298, "content": "I’m experiencing issues with a feature request: real-time collaboration."}, {"userId": 621, "content": "We have reviewed the issue and suggest: User fixed the problem after following specific instructions.."}, {"userId": 298, "content": "I tried that, and it worked perfectly. Thanks!"}]',
+                    'The user reported an issue: a feature request: real-time collaboration. User fixed the problem after following specific instructions.',
+                    true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (305, 690, 'Request for system dark mode', '2024-11-16 17:25:12',
+                    '[{"userId": 690, "content": "I’m experiencing issues with requested system dark mode."}, {"userId": 399, "content": "We have reviewed the issue and suggest: The engineering team deployed a fix to address the bug.."}, {"userId": 690, "content": "I tried that, and it worked perfectly. Thanks!"}]',
+                    'The user reported an issue: requested system dark mode. The engineering team deployed a fix to address the bug.', true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (306, 933, 'Request for export in PDF format', '2024-11-16 17:30:12',
+                    '[{"userId": 933, "content": "I’m experiencing issues with requested export in pdf format."}, {"userId": 973, "content": "We have reviewed the issue and suggest: No action required, user misunderstanding clarified.."}, {"userId": 933, "content": "I tried that, and it worked perfectly. Thanks!"}]',
+                    'The user reported an issue: requested export in pdf format. No action required, user misunderstanding clarified.', true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (307, 516, 'Unable to access archived projects', '2024-11-16 17:35:12',
+                    '[{"userId": 516, "content": "Can you help me with unable to access archived projects?"}, {"userId": 857, "content": "We’ve identified the cause as: User fixed the problem after following specific instructions.. Please follow the steps to resolve it."}, {"userId": 516, "content": "Following your advice solved the problem. Much appreciated!"}]',
+                    'The user reported an issue: unable to access archived projects. User fixed the problem after following specific instructions.', true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (308, 933, 'Push notifications not stopping', '2024-11-16 17:40:12',
+                    '[{"userId": 933, "content": "Why is push notifications not stopping happening?"}, {"userId": 393, "content": "This is due to: The problem was resolved through a backend configuration update.. We recommend taking action."}, {"userId": 933, "content": "I followed the recommendation, and it’s resolved now."}]',
+                    'The user reported an issue: push notifications not stopping. The problem was resolved through a backend configuration update.', true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (309, 329, 'Bug: Double charges on invoices', '2024-11-16 17:45:12',
+                    '[{"userId": 329, "content": "Can you help me with an issue: double charges on invoices?"}, {"userId": 1045, "content": "We’ve identified the cause as: The engineering team deployed a fix to address the bug.. Please follow the steps to resolve it."}, {"userId": 329, "content": "Following your advice solved the problem. Much appreciated!"}]',
+                    'The user reported an issue: an issue: double charges on invoices. The engineering team deployed a fix to address the bug.', true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (310, 132, 'Feature request: auto-save functionality', '2024-11-16 17:50:12',
+                    '[{"userId": 132, "content": "Why is a feature request: auto-save functionality happening?"}, {"userId": 734, "content": "This is due to: The problem was resolved through a backend configuration update.. We recommend taking action."}, {"userId": 132, "content": "I followed the recommendation, and it’s resolved now."}]',
+                    'The user reported an issue: a feature request: auto-save functionality. The problem was resolved through a backend configuration update.',
+                    true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (311, 965, 'Failed to share file link', '2024-11-16 17:55:12',
+                    '[{"userId": 965, "content": "Why is failed to share file link happening?"}, {"userId": 661, "content": "This is due to: The problem was resolved through a backend configuration update.. We recommend taking action."}, {"userId": 965, "content": "I followed the recommendation, and it’s resolved now."}]',
+                    'The user reported an issue: failed to share file link. The problem was resolved through a backend configuration update.', true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (312, 260, 'Error generating invoices', '2024-11-16 18:00:12',
+                    '[{"userId": 260, "content": "I’m experiencing issues with error generating invoices."}, {"userId": 812, "content": "We have reviewed the issue and suggest: No action required, user misunderstanding clarified.."}, {"userId": 260, "content": "I tried that, and it worked perfectly. Thanks!"}]',
+                    'The user reported an issue: error generating invoices. No action required, user misunderstanding clarified.', true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (313, 444, 'Support for international characters', '2024-11-16 18:05:12',
+                    '[{"userId": 444, "content": "Can you help me with support for international characters?"}, {"userId": 19, "content": "We’ve identified the cause as: User fixed the problem after following specific instructions.. Please follow the steps to resolve it."}, {"userId": 444, "content": "Following your advice solved the problem. Much appreciated!"}]',
+                    'The user reported an issue: support for international characters. User fixed the problem after following specific instructions.', true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (314, 821, 'Integration with payment gateways', '2024-11-16 18:10:12',
+                    '[{"userId": 821, "content": "Can you help me with integration with payment gateways?"}, {"userId": 781, "content": "We’ve identified the cause as: User fixed the problem after following specific instructions.. Please follow the steps to resolve it."}, {"userId": 821, "content": "Following your advice solved the problem. Much appreciated!"}]',
+                    'The user reported an issue: integration with payment gateways. User fixed the problem after following specific instructions.', true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (315, 458, 'App stuck on splash screen', '2024-11-16 18:15:12',
+                    '[{"userId": 458, "content": "Why is app stuck on splash screen happening?"}, {"userId": 518, "content": "This is due to: Issue caused by a third-party service, resolved with external support.. We recommend taking action."}, {"userId": 458, "content": "I followed the recommendation, and it’s resolved now."}]',
+                    'The user reported an issue: app stuck on splash screen. Issue caused by a third-party service, resolved with external support.', true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (316, 727, 'Feature request: recurring reminders', '2024-11-16 18:20:12',
+                    '[{"userId": 727, "content": "Why is a feature request: recurring reminders happening?"}, {"userId": 487, "content": "This is due to: Feature enhancement added in the latest system update.. We recommend taking action."}, {"userId": 727, "content": "I followed the recommendation, and it’s resolved now."}]',
+                    'The user reported an issue: a feature request: recurring reminders. Feature enhancement added in the latest system update.', true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (317, 913, 'Error updating user roles', '2024-11-16 18:25:12',
+                    '[{"userId": 913, "content": "I’m experiencing issues with error updating user roles."}, {"userId": 328, "content": "We have reviewed the issue and suggest: Feature enhancement added in the latest system update.."}, {"userId": 913, "content": "I tried that, and it worked perfectly. Thanks!"}]',
+                    'The user reported an issue: error updating user roles. Feature enhancement added in the latest system update.', true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (318, 616, 'App not loading on iPad', '2024-11-16 18:30:12',
+                    '[{"userId": 616, "content": "Why is app not loading on ipad happening?"}, {"userId": 1023, "content": "This is due to: The problem was resolved through a backend configuration update.. We recommend taking action."}, {"userId": 616, "content": "I followed the recommendation, and it’s resolved now."}]',
+                    'The user reported an issue: app not loading on ipad. The problem was resolved through a backend configuration update.', true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (319, 821, 'Error: Duplicate email IDs', '2024-11-16 18:35:12',
+                    '[{"userId": 821, "content": "Why is error: duplicate email ids happening?"}, {"userId": 83, "content": "This is due to: Feature enhancement added in the latest system update.. We recommend taking action."}, {"userId": 821, "content": "I followed the recommendation, and it’s resolved now."}]',
+                    'The user reported an issue: error: duplicate email ids. Feature enhancement added in the latest system update.', true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (320, 704, 'API key regeneration issue', '2024-11-16 18:40:12',
+                    '[{"userId": 704, "content": "Why is api key regeneration issue happening?"}, {"userId": 780, "content": "This is due to: The problem was resolved through a backend configuration update.. We recommend taking action."}, {"userId": 704, "content": "I followed the recommendation, and it’s resolved now."}]',
+                    'The user reported an issue: api key regeneration issue. The problem was resolved through a backend configuration update.', true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (321, 516, 'Notification delivery delays', '2024-11-16 18:45:12',
+                    '[{"userId": 516, "content": "Can you help me with notification delivery delays?"}, {"userId": 355, "content": "We’ve identified the cause as: Feature enhancement added in the latest system update.. Please follow the steps to resolve it."}, {"userId": 516, "content": "Following your advice solved the problem. Much appreciated!"}]',
+                    'The user reported an issue: notification delivery delays. Feature enhancement added in the latest system update.', true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (322, 458, 'Cannot reset two-factor authentication', '2024-11-16 18:50:12',
+                    '[{"userId": 458, "content": "Why is cannot reset two-factor authentication happening?"}, {"userId": 821, "content": "This is due to: User fixed the problem after following specific instructions.. We recommend taking action."}, {"userId": 458, "content": "I followed the recommendation, and it’s resolved now."}]',
+                    'The user reported an issue: cannot reset two-factor authentication. User fixed the problem after following specific instructions.', true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (323, 128, 'Bug report: Infinite loading spinner', '2024-11-16 18:55:12',
+                    '[{"userId": 128, "content": "Why is an issue report: infinite loading spinner happening?"}, {"userId": 229, "content": "This is due to: The problem was resolved through a backend configuration update.. We recommend taking action."}, {"userId": 128, "content": "I followed the recommendation, and it’s resolved now."}]',
+                    'The user reported an issue: an issue report: infinite loading spinner. The problem was resolved through a backend configuration update.',
+                    true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (324, 329, 'Bug in pagination of results', '2024-11-16 19:00:12',
+                    '[{"userId": 329, "content": "Why is an issue in pagination of results happening?"}, {"userId": 50, "content": "This is due to: The problem was resolved through a backend configuration update.. We recommend taking action."}, {"userId": 329, "content": "I followed the recommendation, and it’s resolved now."}]',
+                    'The user reported an issue: an issue in pagination of results. The problem was resolved through a backend configuration update.', true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (325, 855, 'Error fetching transaction history', '2024-11-16 19:05:12',
+                    '[{"userId": 855, "content": "I’m experiencing issues with error fetching transaction history."}, {"userId": 953, "content": "We have reviewed the issue and suggest: No action required, user misunderstanding clarified.."}, {"userId": 855, "content": "I tried that, and it worked perfectly. Thanks!"}]',
+                    'The user reported an issue: error fetching transaction history. No action required, user misunderstanding clarified.', true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (326, 513, 'Feature request: time tracking tool', '2024-11-16 19:10:12',
+                    '[{"userId": 513, "content": "Why is a feature request: time tracking tool happening?"}, {"userId": 84, "content": "This is due to: The issue was resolved by updating the app version.. We recommend taking action."}, {"userId": 513, "content": "I followed the recommendation, and it’s resolved now."}]',
+                    'The user reported an issue: a feature request: time tracking tool. The issue was resolved by updating the app version.', true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (327, 516, 'Cannot connect with Bluetooth devices', '2024-11-16 19:15:12',
+                    '[{"userId": 516, "content": "Can you help me with cannot connect with bluetooth devices?"}, {"userId": 835, "content": "We’ve identified the cause as: Issue caused by a third-party service, resolved with external support.. Please follow the steps to resolve it."}, {"userId": 516, "content": "Following your advice solved the problem. Much appreciated!"}]',
+                    'The user reported an issue: cannot connect with bluetooth devices. Issue caused by a third-party service, resolved with external support.',
+                    true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (328, 913, 'Request for bulk data upload', '2024-11-16 19:20:12',
+                    '[{"userId": 913, "content": "I’m experiencing issues with requested bulk data upload."}, {"userId": 516, "content": "We have reviewed the issue and suggest: No action required, user misunderstanding clarified.."}, {"userId": 913, "content": "I tried that, and it worked perfectly. Thanks!"}]',
+                    'The user reported an issue: requested bulk data upload. No action required, user misunderstanding clarified.', true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (329, 329, 'Support for screen readers', '2024-11-16 19:25:12',
+                    '[{"userId": 329, "content": "Why is support for screen readers happening?"}, {"userId": 687, "content": "This is due to: The issue was resolved by updating the app version.. We recommend taking action."}, {"userId": 329, "content": "I followed the recommendation, and it’s resolved now."}]',
+                    'The user reported an issue: support for screen readers. The issue was resolved by updating the app version.', true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (330, 498, 'Feature request: role-based access', '2024-11-16 19:30:12',
+                    '[{"userId": 498, "content": "I’m experiencing issues with a feature request: role-based access."}, {"userId": 181, "content": "We have reviewed the issue and suggest: The issue was resolved by updating the app version.."}, {"userId": 498, "content": "I tried that, and it worked perfectly. Thanks!"}]',
+                    'The user reported an issue: a feature request: role-based access. The issue was resolved by updating the app version.', true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (331, 991, 'Error processing refunds', '2024-11-16 19:35:12',
+                    '[{"userId": 991, "content": "Why is error processing refunds happening?"}, {"userId": 438, "content": "This is due to: Issue caused by a third-party service, resolved with external support.. We recommend taking action."}, {"userId": 991, "content": "I followed the recommendation, and it’s resolved now."}]',
+                    'The user reported an issue: error processing refunds. Issue caused by a third-party service, resolved with external support.', true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (332, 128, 'App stuck on splash screen', '2024-11-16 19:40:12',
+                    '[{"userId": 128, "content": "I’m experiencing issues with app stuck on splash screen."}, {"userId": 481, "content": "We have reviewed the issue and suggest: No action required, user misunderstanding clarified.."}, {"userId": 128, "content": "I tried that, and it worked perfectly. Thanks!"}]',
+                    'The user reported an issue: app stuck on splash screen. No action required, user misunderstanding clarified.', true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (333, 933, 'Support for screen readers', '2024-11-16 19:45:12',
+                    '[{"userId": 933, "content": "Can you help me with support for screen readers?"}, {"userId": 926, "content": "We’ve identified the cause as: No action required, user misunderstanding clarified.. Please follow the steps to resolve it."}, {"userId": 933, "content": "Following your advice solved the problem. Much appreciated!"}]',
+                    'The user reported an issue: support for screen readers. No action required, user misunderstanding clarified.', true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (334, 425, 'Integration with payment gateways', '2024-11-16 19:50:12',
+                    '[{"userId": 425, "content": "Can you help me with integration with payment gateways?"}, {"userId": 806, "content": "We’ve identified the cause as: Feature enhancement added in the latest system update.. Please follow the steps to resolve it."}, {"userId": 425, "content": "Following your advice solved the problem. Much appreciated!"}]',
+                    'The user reported an issue: integration with payment gateways. Feature enhancement added in the latest system update.', true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (335, 969, 'Feature request: auto-save functionality', '2024-11-16 19:55:12',
+                    '[{"userId": 969, "content": "I’m experiencing issues with a feature request: auto-save functionality."}, {"userId": 762, "content": "We have reviewed the issue and suggest: The issue was resolved by updating the app version.."}, {"userId": 969, "content": "I tried that, and it worked perfectly. Thanks!"}]',
+                    'The user reported an issue: a feature request: auto-save functionality. The issue was resolved by updating the app version.', true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (336, 913, 'Request for custom email domains', '2024-11-16 20:00:12',
+                    '[{"userId": 913, "content": "Can you help me with requested custom email domains?"}, {"userId": 941, "content": "We’ve identified the cause as: Feature enhancement added in the latest system update.. Please follow the steps to resolve it."}, {"userId": 913, "content": "Following your advice solved the problem. Much appreciated!"}]',
+                    'The user reported an issue: requested custom email domains. Feature enhancement added in the latest system update.', true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (337, 719, 'Cannot access private groups', '2024-11-16 20:05:12',
+                    '[{"userId": 719, "content": "I’m experiencing issues with cannot access private groups."}, {"userId": 544, "content": "We have reviewed the issue and suggest: The engineering team deployed a fix to address the bug.."}, {"userId": 719, "content": "I tried that, and it worked perfectly. Thanks!"}]',
+                    'The user reported an issue: cannot access private groups. The engineering team deployed a fix to address the bug.', true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (338, 425, 'Error updating profile picture', '2024-11-16 20:10:12',
+                    '[{"userId": 425, "content": "I’m experiencing issues with error updating profile picture."}, {"userId": 498, "content": "We have reviewed the issue and suggest: The engineering team deployed a fix to address the bug.."}, {"userId": 425, "content": "I tried that, and it worked perfectly. Thanks!"}]',
+                    'The user reported an issue: error updating profile picture. The engineering team deployed a fix to address the bug.', true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (339, 719, 'Request for custom email domains', '2024-11-16 20:15:12',
+                    '[{"userId": 719, "content": "Can you help me with requested custom email domains?"}, {"userId": 860, "content": "We’ve identified the cause as: Feature enhancement added in the latest system update.. Please follow the steps to resolve it."}, {"userId": 719, "content": "Following your advice solved the problem. Much appreciated!"}]',
+                    'The user reported an issue: requested custom email domains. Feature enhancement added in the latest system update.', true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (340, 444, 'Error updating profile picture', '2024-11-16 20:20:12',
+                    '[{"userId": 444, "content": "Why is error updating profile picture happening?"}, {"userId": 323, "content": "This is due to: Feature enhancement added in the latest system update.. We recommend taking action."}, {"userId": 444, "content": "I followed the recommendation, and it’s resolved now."}]',
+                    'The user reported an issue: error updating profile picture. Feature enhancement added in the latest system update.', true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (341, 298, 'Files not deleting properly', '2024-11-16 20:25:12',
+                    '[{"userId": 298, "content": "Why is files not deleting properly happening?"}, {"userId": 651, "content": "This is due to: No action required, user misunderstanding clarified.. We recommend taking action."}, {"userId": 298, "content": "I followed the recommendation, and it’s resolved now."}]',
+                    'The user reported an issue: files not deleting properly. No action required, user misunderstanding clarified.', true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (342, 579, 'Support for custom themes', '2024-11-16 20:30:12',
+                    '[{"userId": 579, "content": "I’m experiencing issues with support for custom themes."}, {"userId": 1033, "content": "We have reviewed the issue and suggest: The issue was resolved by updating the app version.."}, {"userId": 579, "content": "I tried that, and it worked perfectly. Thanks!"}]',
+                    'The user reported an issue: support for custom themes. The issue was resolved by updating the app version.', true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (343, 329, 'Subscription auto-renewal issue', '2024-11-16 20:35:12',
+                    '[{"userId": 329, "content": "I’m experiencing issues with subscription auto-renewal issue."}, {"userId": 941, "content": "We have reviewed the issue and suggest: The problem was resolved through a backend configuration update.."}, {"userId": 329, "content": "I tried that, and it worked perfectly. Thanks!"}]',
+                    'The user reported an issue: subscription auto-renewal issue. The problem was resolved through a backend configuration update.', true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (344, 444, 'Bug: Double charges on invoices', '2024-11-16 20:40:12',
+                    '[{"userId": 444, "content": "I’m experiencing issues with an issue: double charges on invoices."}, {"userId": 58, "content": "We have reviewed the issue and suggest: The problem was resolved through a backend configuration update.."}, {"userId": 444, "content": "I tried that, and it worked perfectly. Thanks!"}]',
+                    'The user reported an issue: an issue: double charges on invoices. The problem was resolved through a backend configuration update.', true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (345, 449, 'Feature request: real-time collaboration', '2024-11-16 20:45:12',
+                    '[{"userId": 449, "content": "Can you help me with a feature request: real-time collaboration?"}, {"userId": 441, "content": "We’ve identified the cause as: User fixed the problem after following specific instructions.. Please follow the steps to resolve it."}, {"userId": 449, "content": "Following your advice solved the problem. Much appreciated!"}]',
+                    'The user reported an issue: a feature request: real-time collaboration. User fixed the problem after following specific instructions.',
+                    true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (346, 933, 'Sync error with Google Drive', '2024-11-16 20:50:12',
+                    '[{"userId": 933, "content": "Why is sync error with google drive happening?"}, {"userId": 671, "content": "This is due to: Issue caused by a third-party service, resolved with external support.. We recommend taking action."}, {"userId": 933, "content": "I followed the recommendation, and it’s resolved now."}]',
+                    'The user reported an issue: sync error with google drive. Issue caused by a third-party service, resolved with external support.', true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (347, 819, 'Bug report: Infinite loading spinner', '2024-11-16 20:55:12',
+                    '[{"userId": 819, "content": "I’m experiencing issues with an issue report: infinite loading spinner."}, {"userId": 271, "content": "We have reviewed the issue and suggest: The problem was resolved through a backend configuration update.."}, {"userId": 819, "content": "I tried that, and it worked perfectly. Thanks!"}]',
+                    'The user reported an issue: an issue report: infinite loading spinner. The problem was resolved through a backend configuration update.',
+                    true);
+            INSERT INTO public.ticket (id, user_id, title, created_at, comments, description, completed)
+            VALUES (348, 1009, 'Unable to access archived projects', '2024-11-16 21:00:12',
+                    '[{"userId": 1009, "content": "I’m experiencing issues with unable to access archived projects."}, {"userId": 874, "content": "We have reviewed the issue and suggest: User fixed the problem after following specific instructions.."}, {"userId": 1009, "content": "I tried that, and it worked perfectly. Thanks!"}]',
+                    'The user reported an issue: unable to access archived projects. User fixed the problem after following specific instructions.', true);
+        </sql>
+    </changeSet>
+</databaseChangeLog>
