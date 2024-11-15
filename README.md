@@ -27,11 +27,11 @@
 + All vector store data is pre-built based on this test data. You will connect to a shared (online hosted) vector store. Keep in mind that changes to data in
   your database will not reflect in the vector store since it will not automatically embed this data again
   + This makes it so all of us do not have to make the same embeddings, which can be time-consuming and costly
-  + An exception to this is the lab assignment, in this case new opened tickets will automatically get embedded.
-    + If you want to try and build your own vectors from data, refer to one of the following classes:
-      + `FileVectorStoreDataLoader.java`
-      + `PublicationVectorStoreDataLoader.java`
-      + PLEASE keep in mind that large datasets will take time to embed and cost more credit.
+  + If you want to try and build your own vectors from data, refer to one of the following classes:
+    + [FileVectorStoreDataLoader.java](src%2Fmain%2Fjava%2Fnl%2F_42%2Fspringai%2Fhackathon%2Fdomain%2Ffile%2FFileVectorStoreDataLoader.java)
+    + [PublicationVectorStoreDataLoader.java](src%2Fmain%2Fjava%2Fnl%2F_42%2Fspringai%2Fhackathon%2Fdomain%2Fpublication%2FPublicationVectorStoreDataLoader.java)
+    + [TicketVectorStoreRepository.java](src%2Fmain%2Fjava%2Fnl%2F_42%2Fspringai%2Fhackathon%2Fdomain%2Fticket%2FTicketVectorStoreRepository.java)
+    + PLEASE keep in mind that large datasets will take time to embed and cost more credit.
 + All chatbots are setup in a way that the AI chatbot will keep your conversation context in mind. So you can ask follow up questions. This is setup in
   the [DefaultClientBuilder.java](src%2Fmain%2Fjava%2Fnl%2F_42%2Fspringai%2Fhackathon%2Fchatbot%2FDefaultClientBuilder.java).
   + Every restart the context resets, so if you want to start clean, just restart the application!
@@ -71,9 +71,9 @@ The following datasets already exist:
 - Users and reviews: AI generated reviews combined with user data. Used for function calling example
   - This dataset is loaded into your local database automatically. It is not embedded in Elasticsearch
   - Database tables: `app_user` and `user_review`
-- Users and tickets: AI generated service desk tickets. Part of the `lab` assignment
+- Users and tickets: AI generated service desk tickets. Part of the [LAB.md](src%2Fmain%2Fjava%2Fnl%2F_42%2Fspringai%2Fhackathon%2Fchatbot%2Flab%2FLAB.md)`lab`
+  assignment
   - This dataset is loaded into your local database, and is already fully embedded in the Elasticsearch vector store
-  - Cool part about this dataset: New tickets created by the AI will also be embedded automatically. So others will be able to see your tickets!
   - Database tables: `app_user` and `ticket`
   - Index: `ai-hackathon-ticket`
 - Bee movie: bzzzt...
