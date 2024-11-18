@@ -32,10 +32,12 @@ public class VectorStoreConfiguration {
 
     @Bean
     public ElasticsearchVectorStore vectorStore(
+            @Value("${spring.ai.vectorstore.elasticsearch.dimensions}") int dimensions,
             @Value("${spring.ai.vectorstore.elasticsearch.index-name:ai-hackathon-ticket}") String indexName,
             EmbeddingModel embeddingModel, RestClient restClient) {
         var options = new ElasticsearchVectorStoreOptions();
         options.setIndexName(indexName);
+        options.setDimensions(dimensions);
         return new ElasticsearchVectorStore(options, restClient, embeddingModel, true);
     }
 
