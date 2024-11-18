@@ -13,7 +13,7 @@ Once a ticket is completed, it should be stored in the vector store so that we c
 
 ## Breakdown
 
-Lets break this case into a few requirements:
+Let's break this case into a few requirements:
 
 - When asking a question, the LLM will get prompt stuffed with answers from previously completed tickets
   - This makes use of a vector store with semantic searching in order to get relevant tickets

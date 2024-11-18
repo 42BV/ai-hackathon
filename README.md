@@ -3,8 +3,11 @@
 ## Quick-start
 
 + ONLY If using a global maven repository definition! Modify the settings.xml to be able to pull Spring snapshot
-  repositories -> `<mirrorOf>*,!spring-milestones,!spring-snapshots</mirrorOf>`
-  + `settings.xml` is usually defined in the current logged-in users `.m2` folder
+  repositories
+  + This applies if you are using a `<mirrorOf>*</mirrorOf>`
+    + `settings.xml` is usually defined in the current logged-in users `.m2` folder
+      + MacOs: `~/.m2`
+      + Windows: `C:\Users\[username]\.m2\settings.xml`
 + Fill in the required credentials to external systems:
   + Most of you will have received a complete `application-local.yml`. Just put this in the [resources](src%2Fmain%2Fresources) folder.
   + If you did not receive an application-local.yml, you will have to create it yourself. Do the following:
@@ -108,7 +111,7 @@ You will have to:
 - Change connection details in the [application.yml](src%2Fmain%2Fresources%2Fapplication.yml)
 - Create the embeddings yourself! See examples in `SpringAIConfiguration.java`, `PublicationVectorStoreDataLoader.java` and `FileVectorStoreDataLoader.java` how
   to do so.
-- Again, keep in mind, do not start embedding large datasets, this takes time and costs $$$
+- Again, keep in mind, do not start embedding **large** datasets, this takes time and costs $$$
 
 ### Connecting to Elasticsearch through separate client
 

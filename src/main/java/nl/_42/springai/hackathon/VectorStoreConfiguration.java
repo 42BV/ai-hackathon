@@ -10,6 +10,7 @@ import org.springframework.ai.openai.OpenAiEmbeddingModel;
 import org.springframework.ai.openai.OpenAiEmbeddingOptions;
 import org.springframework.ai.openai.api.OpenAiApi;
 import org.springframework.ai.vectorstore.ElasticsearchVectorStore;
+import org.springframework.ai.vectorstore.ElasticsearchVectorStoreOptions;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -30,8 +31,12 @@ public class VectorStoreConfiguration {
     }
 
     @Bean
-    public ElasticsearchVectorStore vectorStore(EmbeddingModel embeddingModel, RestClient restClient) {
-        return new ElasticsearchVectorStore(restClient, embeddingModel, true);
+    public ElasticsearchVectorStore vectorStore(
+            @Value("${spring.ai.vectorstore.elasticsearch.index-name:ai-hackathon-ticket}") String indexName,
+            EmbeddingModel embeddingModel, RestClient restClient) {
+        var options = new ElasticsearchVectorStoreOptions();
+        options.setIndexName(indexName);
+        return new ElasticsearchVectorStore(options, restClient, embeddingModel, true);
     }
 
     @Bean
