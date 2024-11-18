@@ -3,9 +3,9 @@ package nl._42.springai.hackathon.domain.ticket;
 import static java.util.stream.Collectors.joining;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -40,7 +40,7 @@ public class Ticket implements Persistable<Long> {
 
     @JdbcTypeCode(SqlTypes.JSON)
     @Column(columnDefinition = "jsonb")
-    private Set<Comment> comments = new HashSet<>();
+    private List<Comment> comments = new ArrayList<>();
 
     private LocalDateTime createdAt;
 
@@ -64,9 +64,24 @@ public class Ticket implements Persistable<Long> {
         ticket.setTitle(request.title());
         ticket.setDescription(request.description());
         ticket.setCreatedAt(LocalDateTime.now());
-        ticket.setComments(new HashSet<>());
+        ticket.setComments(new ArrayList<>());
         ticket.setCompleted(false);
         return ticket;
+    }
+
+    public void addComment(Comment comment) {
+        if (comment == null) {
+            return;
+        }
+
+        addComment(List.of(comment));
+    }
+
+    public void addComment(List<Comment> comments) {
+        if (comments == null) {
+            return;
+        }
+        this.comments.addAll(comments);
     }
 
     public Document toDocument() {

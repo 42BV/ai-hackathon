@@ -35,18 +35,18 @@ The following has already been implemented:
 - Basic configuration of the chatbot, with a function callback to make new tickets:
   - [SpringAIServiceDeskChatbot.java](SpringAIServiceDeskChatbot.java)
   - [SpringAITicketConfiguration.java](SpringAITicketConfiguration.java)
-  - See `lab` folder
+  - See [lab]() folder
 - All initial testdata tickets have already been loaded into the vector store.
 - Code to store completed tickets into the vector store
-  using `[TicketVectorStoreRepository.java](..%2F..%2Ftestdata%2Fticket%2FTicketVectorStoreRepository.java)`
+  using [TicketService.java](..%2F..%2Fdomain%2Fticket%2FTicketService.java)
 
 ### What needs to be done
 
 The following has NOT been implemented yet:
 
-- Retrieving tickets from the vector store and prompt stuffing these so AI can use it as context
-- Adding new comments onto existing tickets based on comments made to the LLM.
-- Adding the ticket to the vector store as soon as it is marked as 'completed'
+- Retrieving tickets from the vector store and prompt stuffing these so AI can use it as context (using vector store)
+- Adding new comments onto existing tickets based on comments made to the LLM (using function calling)
+- Adding the ticket to the vector store as soon as it is marked as 'completed' by the user (using function calling)
   - Note that others will also be able to use your tickets at this point, since we all share the same vector store
 - Additional fine-tuning of prompt and existing functions descriptions in order to make the AI understand our use-case better
 - Fine-tuning to ensure privacy of other users is met, and not 'too much' data is being exposed
@@ -58,3 +58,4 @@ The following has NOT been implemented yet:
   the [application.yml](..%2F..%2F..%2F..%2F..%2F..%2F..%2Fresources%2Fapplication.yml)
 - See the [README.md](..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2FREADME.md) for further instructions how to run the database and start the application.
 - If you are stuck, look at the [examples](..%2Fexamples). It showcases all things asked!
+- Some code has been made for you already! See the [TicketService.java](..%2F..%2Fdomain%2Fticket%2FTicketService.java)

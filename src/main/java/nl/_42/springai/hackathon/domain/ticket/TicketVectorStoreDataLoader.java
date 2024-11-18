@@ -23,7 +23,7 @@ class TicketVectorStoreDataLoader {
 
     private final TicketRepository repository;
 
-    private final TicketVectorStoreRepository ticketVectorStoreRepository;
+    private final TicketService ticketService;
 
     public void loadVectorStoreData() throws Exception {
         log.info("STARTED LOADING TICKETS");
@@ -51,7 +51,7 @@ class TicketVectorStoreDataLoader {
                 log.info("Started VectorBuildTask id: {}", taskId);
                 var tickets = repository.findAll(PageRequest.of(taskId, BATCH_SIZE));
                 var ticketIds = tickets.map(Ticket::getId).toSet();
-                ticketVectorStoreRepository.storeTicketInVectorStore(ticketIds);
+                ticketService.storeTicketInVectorStore(ticketIds);
                 log.info("Finished VectorBuildTask id: {}", taskId);
             } catch (Exception e) {
                 log.error("Failed task id: {}", taskId, e);
