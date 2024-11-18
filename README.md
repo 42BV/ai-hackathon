@@ -4,10 +4,14 @@
 
 + ONLY If using a global maven repository definition! Modify the settings.xml to be able to pull Spring snapshot
   repositories
-  + This applies if you are using a `<mirrorOf>*</mirrorOf>`
-    + `settings.xml` is usually defined in the current logged-in users `.m2` folder
-      + MacOs: `~/.m2`
-      + Windows: `C:\Users\[username]\.m2\settings.xml`
+  + This applies if you are using a globally inclusive `<mirrorOf>*</mirrorOf>`
+  + You must do ONE of the following:
+    + OPTION 1: Rename your `settings.xml` to `settings-backup.xml`
+    + OPTION 2: Add the following to the `<mirrorOf>*</mirrorOf>` property in your settings.xml:
+      + `<mirrorOf>*,!spring-milestones,!spring-snapshots</mirrorOf>`
+  + `settings.xml` is usually defined in the current logged-in users `.m2` folder
+    + MacOs: `~/.m2`
+    + Windows: `C:\Users\[username]\.m2\settings.xml`
 + Fill in the required credentials to external systems:
   + Most of you will have received a complete `application-local.yml`. Just put this in the [resources](src%2Fmain%2Fresources) folder.
   + If you did not receive an application-local.yml, you will have to create it yourself. Do the following:
