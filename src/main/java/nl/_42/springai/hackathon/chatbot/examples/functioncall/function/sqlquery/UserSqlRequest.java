@@ -20,12 +20,6 @@ public record UserSqlRequest(
                         date_of_birth: date
                         age: integer
                                 
-                user_activity table:
-                        id: bigint
-                        action: varchar(64)
-                        action_timestamp timestamp
-                        user_id bigint -> FK to app_user.id
-                        
                 user_review table:
                         id: bigint
                         timestamp: timestamp

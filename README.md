@@ -89,9 +89,9 @@ The following datasets already exist:
 - Great gatsby
   - This dataset is only loaded directly into the vector store
   - Index: `ai-hackathon-great-gatsby`
-- Frankenstein
+- Dummy guide to the internet
   - This dataset is only loaded directly into the vector store
-  - Index: `ai-hackathon-frankenstein`
+  - Index: `ai-hackathon-dummy-internet`
 
 You can view this test data using the 'Connecting to Elasticsearch through separate client' and 'Connecting to PostgresQL through separate client' below.
 
